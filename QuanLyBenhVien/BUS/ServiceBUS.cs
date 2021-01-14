@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace BUS
 {
@@ -20,6 +22,7 @@ namespace BUS
             get { if (instance == null) instance = new ServiceBUS(); return instance; }
             set => instance = value;
         }
+        public List<ServiceDTO> listServiceGB =new List<ServiceDTO>();
         public void LoadService(DataGridView dtgv, BindingSource binding)
         {
             binding.DataSource = GetListService(); // dùng custombiding để khi load lại không bị lỗi
@@ -78,6 +81,71 @@ namespace BUS
             }
             binding.DataSource = LIST;
         }
-
+        public void LoadAllServiceToCBB(ComboBox cbb) // lấy toàn bộ tên dịch vụ lưu vào trong combobox
+        {
+            string query = string.Format("select TenDV from dichvu");
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                cbb.Items.Add(item["TenDV"].ToString());
+            }
+        }
+        public int GetIDServiceByName(string name)
+        {
+            string query = string.Format("select MaDV from DICHVU where TenDV=N'{0}'",name);
+            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            {
+                return (int)DataProvider.Instance.ExecuteScalar(query);
+            }
+            return -1;
+        }
+        public List<ServiceDTO> GetServiceByName(string name)
+        {
+            List<ServiceDTO> list = new List<ServiceDTO>();
+            string query = string.Format("select * from DICHVU where TenDV=N'{0}'", name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                ServiceDTO ITEM_DTO = new ServiceDTO(item);
+                list.Add(ITEM_DTO);
+            }
+            return list;
+        }
+        public void AddServiceToListView(string name, System.Windows.Forms.ListView lv)
+        {
+            List<ServiceDTO> listService = GetServiceByName(name);
+            foreach (ServiceDTO item in listService)
+            {
+                bool found = false;
+                foreach (ListViewItem item1 in lv.Items) // nếu phòng đả có trong danh sách thì cho người dùng nhập lại
+                {
+                    if (item1.Text == item.MaDV.ToString())
+                    {
+                        found = true;
+                        MessageBox.Show("Dịch vụ đả có trong dach sách!");
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    ListViewItem lvItem = new ListViewItem(item.MaDV.ToString());
+                    lvItem.SubItems.Add(item.TenDV.ToString());
+                    lvItem.SubItems.Add(item.DonGia.ToString());
+                    lv.Items.Add(lvItem);
+                    listServiceGB.AddRange(listService); // thêm vào GB
+                }
+            }
+        }
+        public void DeleteServiceFromLV(System.Windows.Forms.ListView lv)
+        {
+            for (int i = lv.Items.Count - 1; i >= 0; i--)
+            {
+                if (lv.Items[i].Selected)
+                {
+                    lv.Items[i].Remove();
+                    listServiceGB.RemoveAt(i); // xóa luôn trong listServiceGB
+                }
+            }
+        }
     }
 }
