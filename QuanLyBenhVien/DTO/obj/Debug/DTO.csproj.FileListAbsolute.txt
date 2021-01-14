@@ -1,0 +1,9 @@
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\DTO\obj\Debug\DTO.Properties.Resources.resources
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\DTO\obj\Debug\DTO.csproj.GenerateResource.cache
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\DTO\bin\Debug\DTO.dll.config
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\DTO\bin\Debug\DTO.dll
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\DTO\bin\Debug\DTO.pdb
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\DTO\obj\Debug\DTO.dll
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\DTO\obj\Debug\DTO.pdb

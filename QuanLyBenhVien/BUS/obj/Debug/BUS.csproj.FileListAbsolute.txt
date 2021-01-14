@@ -1,0 +1,16 @@
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\obj\Debug\BUS.Properties.Resources.resources
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\obj\Debug\BUS.csproj.GenerateResource.cache
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\bin\Debug\BUS.dll.config
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\bin\Debug\BUS.dll
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\bin\Debug\BUS.pdb
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\bin\Debug\DAO.dll
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\bin\Debug\DTO.dll
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\bin\Debug\DAO.pdb
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\bin\Debug\DAO.dll.config
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\bin\Debug\DTO.pdb
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\bin\Debug\DTO.dll.config
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\obj\Debug\BUS.csprojAssemblyReference.cache
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\obj\Debug\BUS.dll
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\BUS\obj\Debug\BUS.pdb
