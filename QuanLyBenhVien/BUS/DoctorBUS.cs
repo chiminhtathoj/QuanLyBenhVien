@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace BUS
 {
-    public class DoctocBUS
+    public class DoctorBUS
     {
-        private static DoctocBUS instance;
+        private static DoctorBUS instance;
 
-        public static DoctocBUS Instance
+        public static DoctorBUS Instance
         {
-            get { if (instance == null) instance = new DoctocBUS(); return instance; }
+            get { if (instance == null) instance = new DoctorBUS(); return instance; }
             set => instance = value;
         }
-        private DoctocBUS() { }
+        private DoctorBUS() { }
         public List<DoctocDTO> GetListDoctor()
         {
             List<DoctocDTO> listDoctor = new List<DoctocDTO>();
 
-            DataTable data = DataProvider.Instance.ExecuteQuery("select * from BACSI");
+            DataTable data = DataProvider.Instance.ExecuteQuery("select * from BACSI bs join KHOA k on bs.MaKhoa=k.MaKhoa");
             foreach (DataRow item in data.Rows)
             {
                 DoctocDTO patient = new DoctocDTO(item);
@@ -46,6 +46,7 @@ namespace BUS
             dtgvDoctor.Columns[5].HeaderText = "Số điện thoại";
             dtgvDoctor.Columns[6].HeaderText = "Địa chỉ";
             dtgvDoctor.Columns[7].HeaderText = "Mã khoa";
+            dtgvDoctor.Columns[8].HeaderText = "Tên khoa";
             dtgvDoctor.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy"; // chỉnh format hiển thị ngày thành dd/mm
             foreach (DataGridViewColumn col in dtgvDoctor.Columns)
             {
@@ -66,10 +67,10 @@ namespace BUS
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
-        public void SearchListPatientByName(string name,BindingSource DoctorBinding)
+        public void SearchListDoctorByName(string name,BindingSource DoctorBinding)
         {
             List<DoctocDTO> listDoctor = new List<DoctocDTO>();
-            string query = string.Format("select * from BACSI where dbo.GetUnsignString(HoTenBS) like '%' + dbo.GetUnsignString(N'{0}')+'%'", name);
+            string query = string.Format("select * from BACSI bs join KHOA k on bs.MaKhoa=k.MaKhoa where dbo.GetUnsignString(HoTenBS) like '%' + dbo.GetUnsignString(N'{0}')+'%'", name);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
@@ -77,6 +78,18 @@ namespace BUS
                 listDoctor.Add(patient);
             }
             DoctorBinding.DataSource= listDoctor;
+        }
+        public void SearchListDoctorByFaculty(string name, BindingSource DoctorBinding)
+        {
+            List<DoctocDTO> listDoctor = new List<DoctocDTO>();
+            string query = string.Format("select * from BACSI bs join KHOA k on bs.MaKhoa=k.MaKhoa where dbo.GetUnsignString(k.TenKhoa) like '%' + dbo.GetUnsignString(N'{0}')+'%'", name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                DoctocDTO patient = new DoctocDTO(item);
+                listDoctor.Add(patient);
+            }
+            DoctorBinding.DataSource = listDoctor;
         }
         #endregion
 

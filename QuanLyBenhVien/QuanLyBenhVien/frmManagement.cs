@@ -16,6 +16,7 @@ namespace QuanLyBenhVien
         BindingSource AccountBinding = new BindingSource();
         BindingSource PatientBinding = new BindingSource();
         BindingSource DoctorBinding = new BindingSource();
+        BindingSource ServiceBinding = new BindingSource();
         string currentAcc;
         public frmManagement(string acc)
         {
@@ -29,9 +30,11 @@ namespace QuanLyBenhVien
             LoadAccount();
             AddAccountBinding();
             PatientBUS.Instance.LoadPatient(dtgvPatient, PatientBinding);
-            AddCustomerBinding();
-            DoctocBUS.Instance.LoadDoctor(dtgvDoctor, DoctorBinding);
+            AddPatientBinding();
+            DoctorBUS.Instance.LoadDoctor(dtgvDoctor, DoctorBinding);
             AddDoctorBinding();
+            ServiceBUS.Instance.LoadService(dtgvService, ServiceBinding);
+            AddServiceBinding();
         }
         void authorization(string acc)// phần quyền người dùng trong form quản lý
         {
@@ -175,7 +178,7 @@ namespace QuanLyBenhVien
         #endregion
         #region Patient
 
-        void AddCustomerBinding()
+        void AddPatientBinding()
         {
             dtpkDOBPatient.Format = DateTimePickerFormat.Custom;
             dtpkDOBPatient.CustomFormat = "dd/MM/yyyy";//sửa định dạng 
@@ -225,6 +228,11 @@ namespace QuanLyBenhVien
                 MessageBox.Show("Vui lòng nhập địa chỉ", "thông báo");
                 return;
             }
+            if (PatientBUS.Instance.isExist(idCard))
+            {
+                MessageBox.Show("Bệnh nhân đả có trong danh sách,vui lòng kiểm tra lại!", "thông báo");
+                return;
+            }
             if (PatientBUS.Instance.InsertPatient(idCard, name, DOB, sex, phone, address))
             {
                 MessageBox.Show("Thêm thành công", "Thông báo");
@@ -248,6 +256,11 @@ namespace QuanLyBenhVien
                 || string.IsNullOrWhiteSpace(address.ToString())) // check các textbox phải điền đầy đủ mới cho sửa 
             {
                 MessageBox.Show("Vui lòng chọn bệnh nhân cần sửa", "thông báo");
+                return;
+            }
+            if (PatientBUS.Instance.isExist(idCard))
+            {
+                MessageBox.Show("Bệnh nhân đả có trong danh sách,vui lòng kiểm tra lại!", "thông báo");
                 return;
             }
             if (PatientBUS.Instance.UpdatePatient(id, idCard, name, DOB, sex, phone, address))
@@ -298,6 +311,14 @@ namespace QuanLyBenhVien
                 MessageBox.Show("Vui lòng nhập 10 số");
             }
         }
+        private void txtIDCardPatient_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+         (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
 
         #endregion
         #region Doctor
@@ -313,7 +334,7 @@ namespace QuanLyBenhVien
             cbbSexDoctor.DataBindings.Add(new Binding("text", dtgvDoctor.DataSource, "GioiTinhBS", true, DataSourceUpdateMode.Never));
             txtPhoneDoctor.DataBindings.Add(new Binding("text", dtgvDoctor.DataSource, "DienThoaiBS", true, DataSourceUpdateMode.Never));
             txtAddressDoctor.DataBindings.Add(new Binding("text", dtgvDoctor.DataSource, "DiaChiBS", true, DataSourceUpdateMode.Never)); //Thêm true để format theo dtgv
-            cbbFacultyDoctor.DataBindings.Add(new Binding("text", dtgvDoctor.DataSource, "MaKhoa", true, DataSourceUpdateMode.Never)); //Thêm true để format theo dtgv
+            cbbFacultyDoctor.DataBindings.Add(new Binding("text", dtgvDoctor.DataSource, "TenKhoa", true, DataSourceUpdateMode.Never)); //Thêm true để format theo dtgv
         }
         private void btnAddDoctor_Click(object sender, EventArgs e)
         {
@@ -389,10 +410,10 @@ namespace QuanLyBenhVien
                         break;
                 }
             }
-            if (DoctocBUS.Instance.InsertDoctor(idCard, name, DOB, sex, phone, address, idFaculty))
+            if (DoctorBUS.Instance.InsertDoctor(idCard, name, DOB, sex, phone, address, idFaculty))
             {
                 MessageBox.Show("Thêm thành công", "Thông báo");
-                DoctocBUS.Instance.LoadDoctor(dtgvDoctor, DoctorBinding);
+                DoctorBUS.Instance.LoadDoctor(dtgvDoctor, DoctorBinding);
             }
             else
                 MessageBox.Show("Thêm thất bại", "Thông báo");
@@ -443,12 +464,11 @@ namespace QuanLyBenhVien
                     break;
                 default:
                     break;
-
             }
-            if (DoctocBUS.Instance.UpdateDoctor(id, idCard, name, DOB, sex, phone, address, idFaculty))
+            if (DoctorBUS.Instance.UpdateDoctor(id, idCard, name, DOB, sex, phone, address, idFaculty))
             {
                 MessageBox.Show("Sửa thành công", "Thông báo");
-                DoctocBUS.Instance.LoadDoctor(dtgvDoctor, DoctorBinding);
+                DoctorBUS.Instance.LoadDoctor(dtgvDoctor, DoctorBinding);
             }
             else
                 MessageBox.Show("Sửa thất bại", "Thông báo");
@@ -456,7 +476,7 @@ namespace QuanLyBenhVien
 
         private void btnLoadDoctor_Click(object sender, EventArgs e)
         {
-            DoctocBUS.Instance.LoadDoctor(dtgvPatient, PatientBinding);
+            DoctorBUS.Instance.LoadDoctor(dtgvPatient, PatientBinding);
         }
         private void txtPhoneDoctor_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -489,11 +509,113 @@ namespace QuanLyBenhVien
 
         private void btnSearchDoctor_Click(object sender, EventArgs e)
         {
-            DoctocBUS.Instance.SearchListPatientByName(txtSearchDoctor.Text, DoctorBinding);
+            DoctorBUS.Instance.SearchListDoctorByName(txtSearchDoctor.Text, DoctorBinding);
         }
 
-        #endregion
+        private void txtIDCardDoctor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+         (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
 
+        }
+
+
+
+
+        #endregion
+        #region Service
+        void AddServiceBinding()
+        {
+            txtIDService.DataBindings.Add(new Binding("text", dtgvService.DataSource, "MaDV", true, DataSourceUpdateMode.Never));
+            txtNameService.DataBindings.Add(new Binding("text", dtgvService.DataSource, "TenDV", true, DataSourceUpdateMode.Never));
+            txtPriceService.DataBindings.Add(new Binding("text", dtgvService.DataSource, "DonGia", true, DataSourceUpdateMode.Never));
+        }
+        private void btnAddService_Click(object sender, EventArgs e)
+        {
+            string nameservice = txtNameService.Text;
+            double price = 0;
+            double.TryParse(txtPriceService.Text, out price);
+            if (string.IsNullOrWhiteSpace(nameservice)) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng điền tên", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(price.ToString()))
+            {
+                MessageBox.Show("Vui lòng điền đơn giá", "thông báo");
+                return;
+            }
+            if (ServiceBUS.Instance.InsertService(nameservice, price))
+            {
+                MessageBox.Show("Thêm thành công", "Thông báo");
+                ServiceBUS.Instance.LoadService(dtgvService, ServiceBinding);
+            }
+            else
+                MessageBox.Show("Thêm thất bại", "Thông báo");
+        }
+
+        private void btnDeleteService_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            int.TryParse(txtIDService.Text, out id);
+            if (string.IsNullOrWhiteSpace(id.ToString()))
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần xóa", "thông báo");
+                return;
+            }
+            if (ServiceBUS.Instance.DeleteService(id))
+            {
+                MessageBox.Show("Xóa thành công", "Thông báo");
+                ServiceBUS.Instance.LoadService(dtgvService, ServiceBinding);
+            }
+            else
+                MessageBox.Show("Xóa thất bại", "Thông báo");
+        }
+
+        private void btnEditService_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            int.TryParse(txtIDService.Text, out id);
+            string nameservice = txtNameService.Text;
+            double price = 0;
+            double.TryParse(txtPriceService.Text, out price);
+            if (string.IsNullOrWhiteSpace(nameservice)) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(id.ToString())) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(price.ToString()))
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
+                return;
+            }
+            if (ServiceBUS.Instance.UpdateService(id, nameservice, price))
+            {
+                MessageBox.Show("Sửa thành công", "Thông báo");
+                ServiceBUS.Instance.LoadService(dtgvService, ServiceBinding);
+            }
+            else
+                MessageBox.Show("Sửa thất bại", "Thông báo");
+        }
+
+        private void btnLoadService_Click(object sender, EventArgs e)
+        {
+            ServiceBUS.Instance.LoadService(dtgvService, ServiceBinding);
+        }
+
+        private void btnSearchServiceByName_Click(object sender, EventArgs e)
+        {
+            ServiceBUS.Instance.SearchListServiceByName(txtSearchService.Text, ServiceBinding);
+        }
+        #endregion
 
     }
 }

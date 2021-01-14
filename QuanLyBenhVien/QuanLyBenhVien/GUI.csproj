@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmExamination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExamination.Designer.cs">
+      <DependentUpon>frmExamination.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmExamination.resx">
+      <DependentUpon>frmExamination.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManagement.resx">
       <DependentUpon>frmManagement.cs</DependentUpon>
     </EmbeddedResource>

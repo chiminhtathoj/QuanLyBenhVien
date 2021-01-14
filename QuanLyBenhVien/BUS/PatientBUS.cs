@@ -12,7 +12,7 @@ namespace BUS
 {
     public class PatientBUS
     {
-        
+
         private static PatientBUS instance;
 
         public static PatientBUS Instance
@@ -33,7 +33,7 @@ namespace BUS
             }
             return listPatient;
         }
-        public void LoadPatient(DataGridView dtgvPatient,BindingSource PatientBinding)
+        public void LoadPatient(DataGridView dtgvPatient, BindingSource PatientBinding)
         {
             PatientBinding.DataSource = GetListPatient(); // dùng custombiding để khi load lại không bị lỗi
             dtgvPatient.DataSource = PatientBinding;
@@ -52,8 +52,9 @@ namespace BUS
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề
             }
         }
-        
+
         #region CRUD
+
         public bool InsertPatient(string idCard, string name, DateTime DOB, string sex, string phone, string address)
         {
             string query = string.Format("insert into BENHNHAN (CMND,HoTenBN,NgaySinhBN,GioiTinhBN,DienThoaiBN,DiaChiBN )VALUES ( N'{0}', N'{1}', '{2}', N'{3}', N'{4}', N'{5}')", idCard, name, DOB, sex, phone, address);
@@ -62,7 +63,7 @@ namespace BUS
         }
         public bool UpdatePatient(int id, string idCard, string name, DateTime DOB, string sex, string phone, string address)
         {
-            string query = string.Format("update BENHNHAN set CMND = N'{0}', HoTenBN= N'{1}', NgaySinhBN=N'{2}', GioiTinhBN=N'{3}', DienThoaiBN=N'{4}', DiaChiBN=N'{5}' where MaBN={4}", idCard, name, DOB, sex, phone, address, id);
+            string query = string.Format("update BENHNHAN set CMND = N'{0}', HoTenBN= N'{1}', NgaySinhBN=N'{2}', GioiTinhBN=N'{3}', DienThoaiBN=N'{4}', DiaChiBN=N'{5}' where MaBN={6}", idCard, name, DOB, sex, phone, address, id);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
@@ -97,6 +98,13 @@ namespace BUS
             PatientBinding.DataSource = listPatient;
         }
         #endregion
+        public bool isExist(string idCard)
+        {
+            string query = string.Format("select * from benhnhan where CMND= N'{0}'", idCard);
+            int? result = (int?)DataProvider.Instance.ExecuteScalar(query);
+            return result > 0;
+
+        }
 
     }
 }

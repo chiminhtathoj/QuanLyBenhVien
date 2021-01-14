@@ -50,10 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountBUS.cs" />
-    <Compile Include="DoctocBUS.cs" />
+    <Compile Include="DGVPrinter.cs" />
+    <Compile Include="DoctorBUS.cs" />
     <Compile Include="MedicalBillBUS.cs" />
     <Compile Include="PatientBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceBUS.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

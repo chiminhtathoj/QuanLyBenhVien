@@ -21,3 +21,4 @@ C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\Qu
 C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.pdb
 C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.frmProfile.resources
 C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.frmManagement.resources
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.frmExamination.resources

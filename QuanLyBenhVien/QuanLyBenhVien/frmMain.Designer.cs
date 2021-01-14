@@ -38,7 +38,10 @@ namespace QuanLyBenhVien
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearchPatientByName = new System.Windows.Forms.Button();
+            this.btnSearchPatientByIDCard = new System.Windows.Forms.Button();
             this.txtIDMedicalBill = new System.Windows.Forms.TextBox();
+            this.dtgvPatient = new System.Windows.Forms.DataGridView();
             this.label16 = new System.Windows.Forms.Label();
             this.txtIDCardPatient = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -47,15 +50,13 @@ namespace QuanLyBenhVien
             this.txtAddressPatient = new System.Windows.Forms.TextBox();
             this.txtNamePatient = new System.Windows.Forms.TextBox();
             this.dtpkDOBPatient = new System.Windows.Forms.DateTimePicker();
-            this.txtNumOrder = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.symptom = new System.Windows.Forms.TextBox();
+            this.txtSymptom = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dtpkDateMedicalExamination = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
@@ -65,31 +66,38 @@ namespace QuanLyBenhVien
             this.cbIsInsurance = new System.Windows.Forms.CheckBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSearchDoctorByName = new System.Windows.Forms.Button();
+            this.dtgvDoctor = new System.Windows.Forms.DataGridView();
             this.cbbFaculty = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtIDDoctor = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtNameDoctor = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dtgvPatient = new System.Windows.Forms.DataGridView();
-            this.btnSearchPatientByIDCard = new System.Windows.Forms.Button();
-            this.btnSearchPatientByName = new System.Windows.Forms.Button();
+            this.btnInsertMedicalBill = new System.Windows.Forms.Button();
+            this.txtIDPatient = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtgvMedicalBill = new System.Windows.Forms.DataGridView();
+            this.khamBênhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.khamBênhToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvPatient)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvPatient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvDoctor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMedicalBill)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.taiKhoanToolStripMenuItem,
-            this.adminToolStripMenuItem});
+            this.adminToolStripMenuItem,
+            this.khamBênhToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(978, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(876, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -140,10 +148,12 @@ namespace QuanLyBenhVien
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtIDPatient);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSearchPatientByName);
             this.groupBox1.Controls.Add(this.btnSearchPatientByIDCard);
-            this.groupBox1.Controls.Add(this.dtgvPatient);
             this.groupBox1.Controls.Add(this.txtIDMedicalBill);
+            this.groupBox1.Controls.Add(this.dtgvPatient);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.txtIDCardPatient);
             this.groupBox1.Controls.Add(this.label11);
@@ -152,13 +162,11 @@ namespace QuanLyBenhVien
             this.groupBox1.Controls.Add(this.txtAddressPatient);
             this.groupBox1.Controls.Add(this.txtNamePatient);
             this.groupBox1.Controls.Add(this.dtpkDOBPatient);
-            this.groupBox1.Controls.Add(this.txtNumOrder);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(852, 247);
@@ -166,18 +174,50 @@ namespace QuanLyBenhVien
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin bệnh nhân";
             // 
+            // btnSearchPatientByName
+            // 
+            this.btnSearchPatientByName.Location = new System.Drawing.Point(542, 18);
+            this.btnSearchPatientByName.Name = "btnSearchPatientByName";
+            this.btnSearchPatientByName.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchPatientByName.TabIndex = 18;
+            this.btnSearchPatientByName.Text = "Tìm kiếm";
+            this.btnSearchPatientByName.UseVisualStyleBackColor = true;
+            this.btnSearchPatientByName.Click += new System.EventHandler(this.btnSearchPatientByName_Click);
+            // 
+            // btnSearchPatientByIDCard
+            // 
+            this.btnSearchPatientByIDCard.Location = new System.Drawing.Point(542, 44);
+            this.btnSearchPatientByIDCard.Name = "btnSearchPatientByIDCard";
+            this.btnSearchPatientByIDCard.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchPatientByIDCard.TabIndex = 17;
+            this.btnSearchPatientByIDCard.Text = "Tìm kiếm";
+            this.btnSearchPatientByIDCard.UseVisualStyleBackColor = true;
+            this.btnSearchPatientByIDCard.Click += new System.EventHandler(this.btnSearchPatientByIDCard_Click);
+            // 
             // txtIDMedicalBill
             // 
-            this.txtIDMedicalBill.Location = new System.Drawing.Point(107, 45);
+            this.txtIDMedicalBill.Location = new System.Drawing.Point(104, 41);
             this.txtIDMedicalBill.Name = "txtIDMedicalBill";
             this.txtIDMedicalBill.ReadOnly = true;
             this.txtIDMedicalBill.Size = new System.Drawing.Size(48, 20);
             this.txtIDMedicalBill.TabIndex = 15;
             // 
+            // dtgvPatient
+            // 
+            this.dtgvPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvPatient.Location = new System.Drawing.Point(6, 131);
+            this.dtgvPatient.MultiSelect = false;
+            this.dtgvPatient.Name = "dtgvPatient";
+            this.dtgvPatient.ReadOnly = true;
+            this.dtgvPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvPatient.Size = new System.Drawing.Size(840, 110);
+            this.dtgvPatient.TabIndex = 16;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 48);
+            this.label16.Location = new System.Drawing.Point(3, 44);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(83, 13);
             this.label16.TabIndex = 14;
@@ -212,7 +252,7 @@ namespace QuanLyBenhVien
             this.cbbSexPatient.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbbSexPatient.Location = new System.Drawing.Point(107, 104);
+            this.cbbSexPatient.Location = new System.Drawing.Point(104, 100);
             this.cbbSexPatient.Name = "cbbSexPatient";
             this.cbbSexPatient.Size = new System.Drawing.Size(48, 21);
             this.cbbSexPatient.TabIndex = 10;
@@ -234,18 +274,10 @@ namespace QuanLyBenhVien
             // dtpkDOBPatient
             // 
             this.dtpkDOBPatient.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpkDOBPatient.Location = new System.Drawing.Point(107, 71);
+            this.dtpkDOBPatient.Location = new System.Drawing.Point(104, 67);
             this.dtpkDOBPatient.Name = "dtpkDOBPatient";
             this.dtpkDOBPatient.Size = new System.Drawing.Size(88, 20);
             this.dtpkDOBPatient.TabIndex = 7;
-            // 
-            // txtNumOrder
-            // 
-            this.txtNumOrder.Location = new System.Drawing.Point(107, 17);
-            this.txtNumOrder.Name = "txtNumOrder";
-            this.txtNumOrder.ReadOnly = true;
-            this.txtNumOrder.Size = new System.Drawing.Size(48, 20);
-            this.txtNumOrder.TabIndex = 6;
             // 
             // label6
             // 
@@ -268,7 +300,7 @@ namespace QuanLyBenhVien
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Location = new System.Drawing.Point(3, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 3;
@@ -277,7 +309,7 @@ namespace QuanLyBenhVien
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 107);
+            this.label3.Location = new System.Drawing.Point(5, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 2;
@@ -292,18 +324,9 @@ namespace QuanLyBenhVien
             this.label2.TabIndex = 1;
             this.label2.Text = "Họ tên:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Số khám:";
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.symptom);
+            this.groupBox2.Controls.Add(this.txtSymptom);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.dtpkDateMedicalExamination);
             this.groupBox2.Controls.Add(this.label9);
@@ -318,12 +341,12 @@ namespace QuanLyBenhVien
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin khám bệnh";
             // 
-            // symptom
+            // txtSymptom
             // 
-            this.symptom.Location = new System.Drawing.Point(405, 47);
-            this.symptom.Name = "symptom";
-            this.symptom.Size = new System.Drawing.Size(350, 20);
-            this.symptom.TabIndex = 15;
+            this.txtSymptom.Location = new System.Drawing.Point(405, 47);
+            this.txtSymptom.Name = "txtSymptom";
+            this.txtSymptom.Size = new System.Drawing.Size(350, 20);
+            this.txtSymptom.TabIndex = 15;
             // 
             // label10
             // 
@@ -353,10 +376,12 @@ namespace QuanLyBenhVien
             // 
             // cbbTypeInsurance
             // 
+            this.cbbTypeInsurance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTypeInsurance.Enabled = false;
             this.cbbTypeInsurance.FormattingEnabled = true;
             this.cbbTypeInsurance.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ"});
+            "1",
+            "2"});
             this.cbbTypeInsurance.Location = new System.Drawing.Point(107, 47);
             this.cbbTypeInsurance.Name = "cbbTypeInsurance";
             this.cbbTypeInsurance.Size = new System.Drawing.Size(48, 21);
@@ -389,9 +414,12 @@ namespace QuanLyBenhVien
             this.cbIsInsurance.TabIndex = 0;
             this.cbIsInsurance.Text = "Có";
             this.cbIsInsurance.UseVisualStyleBackColor = true;
+            this.cbIsInsurance.CheckedChanged += new System.EventHandler(this.cbIsInsurance_CheckedChanged);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnSearchDoctorByName);
+            this.groupBox3.Controls.Add(this.dtgvDoctor);
             this.groupBox3.Controls.Add(this.cbbFaculty);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.txtIDDoctor);
@@ -400,13 +428,36 @@ namespace QuanLyBenhVien
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Location = new System.Drawing.Point(12, 394);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(852, 51);
+            this.groupBox3.Size = new System.Drawing.Size(852, 153);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bác sĩ khám bệnh";
             // 
+            // btnSearchDoctorByName
+            // 
+            this.btnSearchDoctorByName.Location = new System.Drawing.Point(190, 15);
+            this.btnSearchDoctorByName.Name = "btnSearchDoctorByName";
+            this.btnSearchDoctorByName.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchDoctorByName.TabIndex = 18;
+            this.btnSearchDoctorByName.Text = "Tìm kiếm";
+            this.btnSearchDoctorByName.UseVisualStyleBackColor = true;
+            this.btnSearchDoctorByName.Click += new System.EventHandler(this.btnSearchDoctorByName_Click);
+            // 
+            // dtgvDoctor
+            // 
+            this.dtgvDoctor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvDoctor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvDoctor.Location = new System.Drawing.Point(6, 38);
+            this.dtgvDoctor.MultiSelect = false;
+            this.dtgvDoctor.Name = "dtgvDoctor";
+            this.dtgvDoctor.ReadOnly = true;
+            this.dtgvDoctor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvDoctor.Size = new System.Drawing.Size(840, 110);
+            this.dtgvDoctor.TabIndex = 17;
+            // 
             // cbbFaculty
             // 
+            this.cbbFaculty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbFaculty.FormattingEnabled = true;
             this.cbbFaculty.Items.AddRange(new object[] {
             "Khoa ngoại",
@@ -420,6 +471,7 @@ namespace QuanLyBenhVien
             this.cbbFaculty.Name = "cbbFaculty";
             this.cbbFaculty.Size = new System.Drawing.Size(96, 21);
             this.cbbFaculty.TabIndex = 16;
+            this.cbbFaculty.SelectedIndexChanged += new System.EventHandler(this.cbbFaculty_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -449,7 +501,7 @@ namespace QuanLyBenhVien
             // 
             // txtNameDoctor
             // 
-            this.txtNameDoctor.Location = new System.Drawing.Point(53, 19);
+            this.txtNameDoctor.Location = new System.Drawing.Point(53, 17);
             this.txtNameDoctor.Name = "txtNameDoctor";
             this.txtNameDoctor.Size = new System.Drawing.Size(131, 20);
             this.txtNameDoctor.TabIndex = 10;
@@ -463,53 +515,62 @@ namespace QuanLyBenhVien
             this.label13.TabIndex = 9;
             this.label13.Text = "Họ tên:";
             // 
-            // button1
+            // btnInsertMedicalBill
             // 
-            this.button1.Location = new System.Drawing.Point(779, 452);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 54);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Lập phiếu";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInsertMedicalBill.Location = new System.Drawing.Point(778, 548);
+            this.btnInsertMedicalBill.Name = "btnInsertMedicalBill";
+            this.btnInsertMedicalBill.Size = new System.Drawing.Size(86, 54);
+            this.btnInsertMedicalBill.TabIndex = 12;
+            this.btnInsertMedicalBill.Text = "Lập phiếu";
+            this.btnInsertMedicalBill.UseVisualStyleBackColor = true;
+            this.btnInsertMedicalBill.Click += new System.EventHandler(this.btnInsertMedicalBill_Click);
             // 
-            // dtgvPatient
+            // txtIDPatient
             // 
-            this.dtgvPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgvPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvPatient.Location = new System.Drawing.Point(6, 131);
-            this.dtgvPatient.MultiSelect = false;
-            this.dtgvPatient.Name = "dtgvPatient";
-            this.dtgvPatient.ReadOnly = true;
-            this.dtgvPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvPatient.Size = new System.Drawing.Size(840, 110);
-            this.dtgvPatient.TabIndex = 16;
+            this.txtIDPatient.Location = new System.Drawing.Point(104, 18);
+            this.txtIDPatient.Name = "txtIDPatient";
+            this.txtIDPatient.ReadOnly = true;
+            this.txtIDPatient.Size = new System.Drawing.Size(48, 20);
+            this.txtIDPatient.TabIndex = 20;
             // 
-            // btnSearchPatientByIDCard
+            // label1
             // 
-            this.btnSearchPatientByIDCard.Location = new System.Drawing.Point(542, 44);
-            this.btnSearchPatientByIDCard.Name = "btnSearchPatientByIDCard";
-            this.btnSearchPatientByIDCard.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchPatientByIDCard.TabIndex = 17;
-            this.btnSearchPatientByIDCard.Text = "Tìm kiếm";
-            this.btnSearchPatientByIDCard.UseVisualStyleBackColor = true;
-            this.btnSearchPatientByIDCard.Click += new System.EventHandler(this.btnSearchPatientByIDCard_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Mã bệnh nhân:";
             // 
-            // btnSearchPatientByName
+            // dtgvMedicalBill
             // 
-            this.btnSearchPatientByName.Location = new System.Drawing.Point(542, 18);
-            this.btnSearchPatientByName.Name = "btnSearchPatientByName";
-            this.btnSearchPatientByName.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchPatientByName.TabIndex = 18;
-            this.btnSearchPatientByName.Text = "Tìm kiếm";
-            this.btnSearchPatientByName.UseVisualStyleBackColor = true;
-            this.btnSearchPatientByName.Click += new System.EventHandler(this.btnSearchPatientByName_Click);
+            this.dtgvMedicalBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvMedicalBill.Location = new System.Drawing.Point(629, 24);
+            this.dtgvMedicalBill.Name = "dtgvMedicalBill";
+            this.dtgvMedicalBill.Size = new System.Drawing.Size(98, 24);
+            this.dtgvMedicalBill.TabIndex = 13;
+            this.dtgvMedicalBill.Visible = false;
+            // 
+            // khamBênhToolStripMenuItem
+            // 
+            this.khamBênhToolStripMenuItem.Name = "khamBênhToolStripMenuItem";
+            this.khamBênhToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.khamBênhToolStripMenuItem.Text = "Khám bệnh";
+            // 
+            // khamBênhToolStripMenuItem1
+            // 
+            this.khamBênhToolStripMenuItem1.Name = "khamBênhToolStripMenuItem1";
+            this.khamBênhToolStripMenuItem1.Size = new System.Drawing.Size(80, 20);
+            this.khamBênhToolStripMenuItem1.Text = "Khám bệnh";
+            this.khamBênhToolStripMenuItem1.Click += new System.EventHandler(this.khamBênhToolStripMenuItem1_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 571);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(876, 608);
+            this.Controls.Add(this.dtgvMedicalBill);
+            this.Controls.Add(this.btnInsertMedicalBill);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -517,16 +578,19 @@ namespace QuanLyBenhVien
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý bệnh viện";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvPatient)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvPatient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvDoctor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMedicalBill)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -544,7 +608,6 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIDCardPatient;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPhonePatient;
@@ -552,11 +615,10 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.TextBox txtAddressPatient;
         private System.Windows.Forms.TextBox txtNamePatient;
         private System.Windows.Forms.DateTimePicker dtpkDOBPatient;
-        private System.Windows.Forms.TextBox txtNumOrder;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox symptom;
+        private System.Windows.Forms.TextBox txtSymptom;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtpkDateMedicalExamination;
         private System.Windows.Forms.Label label9;
@@ -574,9 +636,16 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtIDMedicalBill;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInsertMedicalBill;
         private System.Windows.Forms.Button btnSearchPatientByName;
         private System.Windows.Forms.Button btnSearchPatientByIDCard;
         private System.Windows.Forms.DataGridView dtgvPatient;
+        private System.Windows.Forms.Button btnSearchDoctorByName;
+        private System.Windows.Forms.DataGridView dtgvDoctor;
+        private System.Windows.Forms.TextBox txtIDPatient;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dtgvMedicalBill;
+        private System.Windows.Forms.ToolStripMenuItem khamBênhToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem khamBênhToolStripMenuItem;
     }
 }

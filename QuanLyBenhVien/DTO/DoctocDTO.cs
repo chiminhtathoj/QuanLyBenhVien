@@ -9,7 +9,7 @@ namespace DTO
 {
     public class DoctocDTO
     {
-        public DoctocDTO(int maBN, string cMND, string hoTenBS, DateTime ngaySinhBS, string gioiTinhBS, string dienThoaiBS, string diaChiBS, int maKhoa)
+        public DoctocDTO(int maBN, string cMND, string hoTenBS, DateTime ngaySinhBS, string gioiTinhBS, string dienThoaiBS, string diaChiBS, int maKhoa,string tenKhoa)
         {
             this.MaBS = maBN;
             this.CMND = cMND;
@@ -19,6 +19,7 @@ namespace DTO
             this.GioiTinhBS = gioiTinhBS;
             this.DiaChiBS = diaChiBS;
             this.MaKhoa = maKhoa;
+            this.TenKhoa = tenKhoa;
         }
         public DoctocDTO(DataRow row)
         {
@@ -30,6 +31,7 @@ namespace DTO
             this.GioiTinhBS = row["GioiTinhBS"].ToString();
             this.DiaChiBS = row["DiaChiBS"].ToString();
             this.MaKhoa = (int)row["MaKhoa"];
+            this.TenKhoa = row["TenKhoa"].ToString();
         }
         private int maBS;
         private string cMND;
@@ -39,6 +41,7 @@ namespace DTO
         private string dienThoaiBS;
         private string diaChiBS;
         private int maKhoa;
+        private string tenKhoa;
 
         public int MaBS { get => maBS; set => maBS = value; }
         public string CMND { get => cMND; set => cMND = value; }
@@ -48,5 +51,6 @@ namespace DTO
         public string DienThoaiBS { get => dienThoaiBS; set => dienThoaiBS = value; }
         public string DiaChiBS { get => diaChiBS; set => diaChiBS = value; }
         public int MaKhoa { get => maKhoa; set => maKhoa = value; }
+        public string TenKhoa { get => tenKhoa; set => tenKhoa = value; }
     }
 }
