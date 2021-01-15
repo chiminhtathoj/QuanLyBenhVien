@@ -33,6 +33,26 @@ namespace BUS
             }
             return listPatient;
         }
+        public string GetNamePatientByMedicalBillID(int id)
+        {
+            string query = string.Format("Select HoTenBN from BENHNHAN bn join PHIEUKHAM pk on pk.MaBn=bn.MaBn where MaPK={0}", id);
+
+            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            {
+                return (string)DataProvider.Instance.ExecuteScalar(query);
+            }
+            return "";
+        }
+        public int GetIDPatientByMedicalBillID(int id)
+        {
+            string query = string.Format("Select MaBN from PHIEUKHAM where MaPK={0}", id);
+
+            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            {
+                return (int)DataProvider.Instance.ExecuteScalar(query);
+            }
+            return -1;
+        }
         public void LoadPatient(DataGridView dtgvPatient, BindingSource PatientBinding)
         {
             PatientBinding.DataSource = GetListPatient(); // dùng custombiding để khi load lại không bị lỗi

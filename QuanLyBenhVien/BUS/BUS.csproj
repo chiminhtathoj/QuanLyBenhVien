@@ -54,6 +54,7 @@
     <Compile Include="DoctorBUS.cs" />
     <Compile Include="MedicalBillBUS.cs" />
     <Compile Include="PatientBUS.cs" />
+    <Compile Include="PrintTestBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBUS.cs" />
     <Compile Include="TestBUS.cs" />

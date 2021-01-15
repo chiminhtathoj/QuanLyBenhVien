@@ -32,6 +32,7 @@ namespace BUS
             }
             return listDoctor;
         }
+        
         public void LoadDoctor(DataGridView dtgvDoctor, BindingSource Doctorbinding)
         {
             Doctorbinding.DataSource = GetListDoctor(); // dùng custombiding để khi load lại không bị lỗi
