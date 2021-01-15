@@ -269,6 +269,7 @@ namespace QuanLyBenhVien
             this.Controls.Add(this.label12);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmExamination";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Khám bệnh";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

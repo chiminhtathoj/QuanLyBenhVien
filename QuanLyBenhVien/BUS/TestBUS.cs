@@ -1,9 +1,11 @@
 ﻿using DAO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BUS
 {
@@ -35,6 +37,18 @@ namespace BUS
             }
             return 0;
         }
-       
+        public void GetTestByTestID(int id, DataGridView dgtv)
+        {
+
+            DataTable data = DataProvider.Instance.ExecuteQuery("select xn.maxn,bn.HoTenBN from XETNGHIEM xn join BENHNHAN bn on xn.maxn=bn.mabn where MaXN=" + id);
+            dgtv.DataSource = data;
+            dgtv.Columns[0].HeaderText = "Mã xét nghiệm";
+            dgtv.Columns[1].HeaderText = "Tên bệnh nhân";
+            foreach (DataGridViewColumn col in dgtv.Columns)
+            {
+                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề
+            }
+        }
+
     }
 }

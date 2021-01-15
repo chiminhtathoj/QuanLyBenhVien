@@ -94,23 +94,23 @@ namespace QuanLyBenhVien
             this.btnSearchDoctor = new System.Windows.Forms.Button();
             this.txtSearchDoctor = new System.Windows.Forms.TextBox();
             this.dtgvDoctor = new System.Windows.Forms.DataGridView();
-            this.patientBUSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpService = new System.Windows.Forms.TabPage();
-            this.dtgvService = new System.Windows.Forms.DataGridView();
+            this.btnLoadService = new System.Windows.Forms.Button();
+            this.btnEditService = new System.Windows.Forms.Button();
+            this.btnDeleteService = new System.Windows.Forms.Button();
+            this.btnAddService = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtIDService = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtPriceService = new System.Windows.Forms.TextBox();
             this.txtNameService = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.btnSearchServiceByName = new System.Windows.Forms.Button();
             this.txtSearchService = new System.Windows.Forms.TextBox();
-            this.btnLoadService = new System.Windows.Forms.Button();
-            this.btnEditService = new System.Windows.Forms.Button();
-            this.btnDeleteService = new System.Windows.Forms.Button();
-            this.btnAddService = new System.Windows.Forms.Button();
-            this.txtPriceService = new System.Windows.Forms.TextBox();
-            this.txtIDService = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
+            this.dtgvService = new System.Windows.Forms.DataGridView();
+            this.patientBUSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tcManagement.SuspendLayout();
             this.tpAccount.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -121,10 +121,10 @@ namespace QuanLyBenhVien
             this.tbDoctor.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDoctor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBUSBindingSource)).BeginInit();
             this.tpService.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvService)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvService)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBUSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tcManagement
@@ -816,10 +816,6 @@ namespace QuanLyBenhVien
             this.dtgvDoctor.TabIndex = 2;
             this.dtgvDoctor.TabStop = false;
             // 
-            // patientBUSBindingSource
-            // 
-            this.patientBUSBindingSource.DataSource = typeof(BUS.PatientBUS);
-            // 
             // tpService
             // 
             this.tpService.Controls.Add(this.btnLoadService);
@@ -836,17 +832,45 @@ namespace QuanLyBenhVien
             this.tpService.Text = "Dịch vụ";
             this.tpService.UseVisualStyleBackColor = true;
             // 
-            // dtgvService
+            // btnLoadService
             // 
-            this.dtgvService.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvService.Location = new System.Drawing.Point(3, 3);
-            this.dtgvService.Name = "dtgvService";
-            this.dtgvService.ReadOnly = true;
-            this.dtgvService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvService.Size = new System.Drawing.Size(1021, 624);
-            this.dtgvService.TabIndex = 3;
-            this.dtgvService.TabStop = false;
+            this.btnLoadService.Location = new System.Drawing.Point(1273, 569);
+            this.btnLoadService.Name = "btnLoadService";
+            this.btnLoadService.Size = new System.Drawing.Size(85, 40);
+            this.btnLoadService.TabIndex = 8;
+            this.btnLoadService.Text = "Xem";
+            this.btnLoadService.UseVisualStyleBackColor = true;
+            this.btnLoadService.Click += new System.EventHandler(this.btnLoadService_Click);
+            // 
+            // btnEditService
+            // 
+            this.btnEditService.Location = new System.Drawing.Point(1081, 569);
+            this.btnEditService.Name = "btnEditService";
+            this.btnEditService.Size = new System.Drawing.Size(85, 40);
+            this.btnEditService.TabIndex = 7;
+            this.btnEditService.Text = "Sửa";
+            this.btnEditService.UseVisualStyleBackColor = true;
+            this.btnEditService.Click += new System.EventHandler(this.btnEditService_Click);
+            // 
+            // btnDeleteService
+            // 
+            this.btnDeleteService.Location = new System.Drawing.Point(1273, 503);
+            this.btnDeleteService.Name = "btnDeleteService";
+            this.btnDeleteService.Size = new System.Drawing.Size(85, 40);
+            this.btnDeleteService.TabIndex = 6;
+            this.btnDeleteService.Text = "Xóa";
+            this.btnDeleteService.UseVisualStyleBackColor = true;
+            this.btnDeleteService.Click += new System.EventHandler(this.btnDeleteService_Click);
+            // 
+            // btnAddService
+            // 
+            this.btnAddService.Location = new System.Drawing.Point(1081, 503);
+            this.btnAddService.Name = "btnAddService";
+            this.btnAddService.Size = new System.Drawing.Size(85, 40);
+            this.btnAddService.TabIndex = 5;
+            this.btnAddService.Text = "Thêm";
+            this.btnAddService.UseVisualStyleBackColor = true;
+            this.btnAddService.Click += new System.EventHandler(this.btnAddService_Click);
             // 
             // panel4
             // 
@@ -863,6 +887,32 @@ namespace QuanLyBenhVien
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(372, 480);
             this.panel4.TabIndex = 4;
+            // 
+            // txtIDService
+            // 
+            this.txtIDService.Location = new System.Drawing.Point(191, 55);
+            this.txtIDService.Name = "txtIDService";
+            this.txtIDService.ReadOnly = true;
+            this.txtIDService.Size = new System.Drawing.Size(174, 20);
+            this.txtIDService.TabIndex = 16;
+            this.txtIDService.TabStop = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(31, 52);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(97, 19);
+            this.label24.TabIndex = 15;
+            this.label24.Text = "Mã dịch vụ:";
+            // 
+            // txtPriceService
+            // 
+            this.txtPriceService.Location = new System.Drawing.Point(191, 121);
+            this.txtPriceService.Name = "txtPriceService";
+            this.txtPriceService.Size = new System.Drawing.Size(174, 20);
+            this.txtPriceService.TabIndex = 10;
             // 
             // txtNameService
             // 
@@ -919,71 +969,21 @@ namespace QuanLyBenhVien
             this.txtSearchService.Size = new System.Drawing.Size(267, 20);
             this.txtSearchService.TabIndex = 0;
             // 
-            // btnLoadService
+            // dtgvService
             // 
-            this.btnLoadService.Location = new System.Drawing.Point(1273, 569);
-            this.btnLoadService.Name = "btnLoadService";
-            this.btnLoadService.Size = new System.Drawing.Size(85, 40);
-            this.btnLoadService.TabIndex = 8;
-            this.btnLoadService.Text = "Xem";
-            this.btnLoadService.UseVisualStyleBackColor = true;
-            this.btnLoadService.Click += new System.EventHandler(this.btnLoadService_Click);
+            this.dtgvService.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvService.Location = new System.Drawing.Point(3, 3);
+            this.dtgvService.Name = "dtgvService";
+            this.dtgvService.ReadOnly = true;
+            this.dtgvService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvService.Size = new System.Drawing.Size(1021, 624);
+            this.dtgvService.TabIndex = 3;
+            this.dtgvService.TabStop = false;
             // 
-            // btnEditService
+            // patientBUSBindingSource
             // 
-            this.btnEditService.Location = new System.Drawing.Point(1081, 569);
-            this.btnEditService.Name = "btnEditService";
-            this.btnEditService.Size = new System.Drawing.Size(85, 40);
-            this.btnEditService.TabIndex = 7;
-            this.btnEditService.Text = "Sửa";
-            this.btnEditService.UseVisualStyleBackColor = true;
-            this.btnEditService.Click += new System.EventHandler(this.btnEditService_Click);
-            // 
-            // btnDeleteService
-            // 
-            this.btnDeleteService.Location = new System.Drawing.Point(1273, 503);
-            this.btnDeleteService.Name = "btnDeleteService";
-            this.btnDeleteService.Size = new System.Drawing.Size(85, 40);
-            this.btnDeleteService.TabIndex = 6;
-            this.btnDeleteService.Text = "Xóa";
-            this.btnDeleteService.UseVisualStyleBackColor = true;
-            this.btnDeleteService.Click += new System.EventHandler(this.btnDeleteService_Click);
-            // 
-            // btnAddService
-            // 
-            this.btnAddService.Location = new System.Drawing.Point(1081, 503);
-            this.btnAddService.Name = "btnAddService";
-            this.btnAddService.Size = new System.Drawing.Size(85, 40);
-            this.btnAddService.TabIndex = 5;
-            this.btnAddService.Text = "Thêm";
-            this.btnAddService.UseVisualStyleBackColor = true;
-            this.btnAddService.Click += new System.EventHandler(this.btnAddService_Click);
-            // 
-            // txtPriceService
-            // 
-            this.txtPriceService.Location = new System.Drawing.Point(191, 121);
-            this.txtPriceService.Name = "txtPriceService";
-            this.txtPriceService.Size = new System.Drawing.Size(174, 20);
-            this.txtPriceService.TabIndex = 10;
-            // 
-            // txtIDService
-            // 
-            this.txtIDService.Location = new System.Drawing.Point(191, 55);
-            this.txtIDService.Name = "txtIDService";
-            this.txtIDService.ReadOnly = true;
-            this.txtIDService.Size = new System.Drawing.Size(174, 20);
-            this.txtIDService.TabIndex = 16;
-            this.txtIDService.TabStop = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(31, 52);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(97, 19);
-            this.label24.TabIndex = 15;
-            this.label24.Text = "Mã dịch vụ:";
+            this.patientBUSBindingSource.DataSource = typeof(BUS.PatientBUS);
             // 
             // frmManagement
             // 
@@ -993,7 +993,8 @@ namespace QuanLyBenhVien
             this.ClientSize = new System.Drawing.Size(1413, 699);
             this.Controls.Add(this.tcManagement);
             this.Name = "frmManagement";
-            this.Text = "frmAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quản lý";
             this.tcManagement.ResumeLayout(false);
             this.tpAccount.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -1007,11 +1008,11 @@ namespace QuanLyBenhVien
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDoctor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBUSBindingSource)).EndInit();
             this.tpService.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvService)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvService)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBUSBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -35,9 +35,12 @@ namespace QuanLyBenhVien
             this.thôngTinTaiKhoanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuâtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.khamBênhToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIDPatient = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSearchPatientByName = new System.Windows.Forms.Button();
             this.btnSearchPatientByIDCard = new System.Windows.Forms.Button();
             this.txtIDMedicalBill = new System.Windows.Forms.TextBox();
@@ -75,11 +78,9 @@ namespace QuanLyBenhVien
             this.txtNameDoctor = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnInsertMedicalBill = new System.Windows.Forms.Button();
-            this.txtIDPatient = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dtgvMedicalBill = new System.Windows.Forms.DataGridView();
             this.khamBênhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.khamBênhToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.kêtQuaChânĐoanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPatient)).BeginInit();
@@ -94,7 +95,8 @@ namespace QuanLyBenhVien
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.taiKhoanToolStripMenuItem,
             this.adminToolStripMenuItem,
-            this.khamBênhToolStripMenuItem1});
+            this.khamBênhToolStripMenuItem1,
+            this.kêtQuaChânĐoanToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(876, 24);
@@ -130,6 +132,13 @@ namespace QuanLyBenhVien
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.adminToolStripMenuItem.Text = "Quản Lý";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
+            // 
+            // khamBênhToolStripMenuItem1
+            // 
+            this.khamBênhToolStripMenuItem1.Name = "khamBênhToolStripMenuItem1";
+            this.khamBênhToolStripMenuItem1.Size = new System.Drawing.Size(80, 20);
+            this.khamBênhToolStripMenuItem1.Text = "Khám bệnh";
+            this.khamBênhToolStripMenuItem1.Click += new System.EventHandler(this.khamBênhToolStripMenuItem1_Click);
             // 
             // contextMenuStrip1
             // 
@@ -173,6 +182,23 @@ namespace QuanLyBenhVien
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin bệnh nhân";
+            // 
+            // txtIDPatient
+            // 
+            this.txtIDPatient.Location = new System.Drawing.Point(104, 18);
+            this.txtIDPatient.Name = "txtIDPatient";
+            this.txtIDPatient.ReadOnly = true;
+            this.txtIDPatient.Size = new System.Drawing.Size(48, 20);
+            this.txtIDPatient.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Mã bệnh nhân:";
             // 
             // btnSearchPatientByName
             // 
@@ -525,23 +551,6 @@ namespace QuanLyBenhVien
             this.btnInsertMedicalBill.UseVisualStyleBackColor = true;
             this.btnInsertMedicalBill.Click += new System.EventHandler(this.btnInsertMedicalBill_Click);
             // 
-            // txtIDPatient
-            // 
-            this.txtIDPatient.Location = new System.Drawing.Point(104, 18);
-            this.txtIDPatient.Name = "txtIDPatient";
-            this.txtIDPatient.ReadOnly = true;
-            this.txtIDPatient.Size = new System.Drawing.Size(48, 20);
-            this.txtIDPatient.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Mã bệnh nhân:";
-            // 
             // dtgvMedicalBill
             // 
             this.dtgvMedicalBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -557,12 +566,12 @@ namespace QuanLyBenhVien
             this.khamBênhToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.khamBênhToolStripMenuItem.Text = "Khám bệnh";
             // 
-            // khamBênhToolStripMenuItem1
+            // kêtQuaChânĐoanToolStripMenuItem
             // 
-            this.khamBênhToolStripMenuItem1.Name = "khamBênhToolStripMenuItem1";
-            this.khamBênhToolStripMenuItem1.Size = new System.Drawing.Size(80, 20);
-            this.khamBênhToolStripMenuItem1.Text = "Khám bệnh";
-            this.khamBênhToolStripMenuItem1.Click += new System.EventHandler(this.khamBênhToolStripMenuItem1_Click);
+            this.kêtQuaChânĐoanToolStripMenuItem.Name = "kêtQuaChânĐoanToolStripMenuItem";
+            this.kêtQuaChânĐoanToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+            this.kêtQuaChânĐoanToolStripMenuItem.Text = "Kết quả chẩn đoán";
+            this.kêtQuaChânĐoanToolStripMenuItem.Click += new System.EventHandler(this.kêtQuaChânĐoanToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -647,5 +656,6 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.DataGridView dtgvMedicalBill;
         private System.Windows.Forms.ToolStripMenuItem khamBênhToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem khamBênhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kêtQuaChânĐoanToolStripMenuItem;
     }
 }

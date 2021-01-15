@@ -192,6 +192,7 @@ namespace QuanLyBenhVien
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "frmProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin tài khoản";
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

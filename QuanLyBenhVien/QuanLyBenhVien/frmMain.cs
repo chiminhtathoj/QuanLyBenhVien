@@ -160,5 +160,11 @@ namespace QuanLyBenhVien
             f.ShowDialog();
 
         }
+
+        private void kêtQuaChânĐoanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmResultDiagnose f = new frmResultDiagnose();
+            f.ShowDialog();
+        }
     }
 }
