@@ -50,12 +50,15 @@ namespace BUS
         //}
         public void GetListPreInfoByPreID(int id, DataGridView dgtv)
         {
-            string query = string.Format("select bn.MaBN,bn.hotenbn,bs.hotenbs from KETQUA kq join XETNGHIEM xn on kq.MaXN = xn.MaXN join BENHNHAN bn on bn.MaBN=xn.MaBN join PHIEUKHAM pk on pk.MaPK=xn.mapk join BACSI bs on pk.MaBS=bs.MaBS where kq.makq={0}", id);
+            string query = string.Format("select bn.HoTenBN,dt.MaDT,dt.NgayTao,t.TenThuoc,ct.SoLuong,ct.HuongDan from DONTHUOC dt join CT_DONTHUOC ct on dt.MaDT=ct.MADT join KETQUA kq on dt.MAKQ=kq.MaKQ join XETNGHIEM xn on xn.MaXN=kq.MaKQ join BENHNHAN bn on bn.MaBN=xn.MaBN join THUOC t on t.MaThuoc=ct.MaThuoc where ct.mactdt={0}", id);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             dgtv.DataSource = data;
-            dgtv.Columns[0].HeaderText = "Mã bệnh nhân";
-            dgtv.Columns[1].HeaderText = "Tên bệnh nhân";
-            dgtv.Columns[2].HeaderText = "Tên bác sĩ";
+            dgtv.Columns[0].HeaderText = "Tên bệnh nhân";
+            dgtv.Columns[1].HeaderText = "Mã đơn thuốc";
+            dgtv.Columns[2].HeaderText = "Ngày tạo";
+            dgtv.Columns[3].HeaderText = "Tên thuốc";
+            dgtv.Columns[4].HeaderText = "Số lượng";
+            dgtv.Columns[5].HeaderText = "Hướng dẫn";
             foreach (DataGridViewColumn col in dgtv.Columns)
             {
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề

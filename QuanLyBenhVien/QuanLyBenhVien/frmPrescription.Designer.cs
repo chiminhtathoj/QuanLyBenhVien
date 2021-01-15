@@ -63,14 +63,14 @@ namespace QuanLyBenhVien
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.rtbGuide = new System.Windows.Forms.RichTextBox();
-            this.dgtvPrintMedicine = new System.Windows.Forms.DataGridView();
+            this.dtgvPrintMedicine = new System.Windows.Forms.DataGridView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPrescription)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMedicine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgtvPrintMedicine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvPrintMedicine)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -137,7 +137,7 @@ namespace QuanLyBenhVien
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgtvPrintMedicine);
+            this.groupBox2.Controls.Add(this.dtgvPrintMedicine);
             this.groupBox2.Controls.Add(this.rtbGuide);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
@@ -319,12 +319,11 @@ namespace QuanLyBenhVien
             // columnHeader1
             // 
             this.columnHeader1.Text = "Mã thuốc";
-            this.columnHeader1.Width = 70;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Tên thuốc";
-            this.columnHeader2.Width = 145;
+            this.columnHeader2.Width = 88;
             // 
             // columnHeader6
             // 
@@ -333,7 +332,6 @@ namespace QuanLyBenhVien
             // 
             // columnHeader3
             // 
-            this.columnHeader3.DisplayIndex = 2;
             this.columnHeader3.Text = "Đơn vị";
             // 
             // btnDeleteMedicine
@@ -416,23 +414,21 @@ namespace QuanLyBenhVien
             this.rtbGuide.TabIndex = 54;
             this.rtbGuide.Text = "";
             // 
-            // dgtvPrintMedicine
+            // dtgvPrintMedicine
             // 
-            this.dgtvPrintMedicine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtvPrintMedicine.Location = new System.Drawing.Point(462, 377);
-            this.dgtvPrintMedicine.Name = "dgtvPrintMedicine";
-            this.dgtvPrintMedicine.Size = new System.Drawing.Size(50, 39);
-            this.dgtvPrintMedicine.TabIndex = 55;
-            this.dgtvPrintMedicine.Visible = false;
+            this.dtgvPrintMedicine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvPrintMedicine.Location = new System.Drawing.Point(462, 377);
+            this.dtgvPrintMedicine.Name = "dtgvPrintMedicine";
+            this.dtgvPrintMedicine.Size = new System.Drawing.Size(50, 39);
+            this.dtgvPrintMedicine.TabIndex = 55;
+            this.dtgvPrintMedicine.Visible = false;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.DisplayIndex = 3;
             this.columnHeader4.Text = "Số lượng";
             // 
             // columnHeader5
             // 
-            this.columnHeader5.DisplayIndex = 4;
             this.columnHeader5.Text = "Hướng dẫn";
             this.columnHeader5.Width = 77;
             // 
@@ -452,7 +448,7 @@ namespace QuanLyBenhVien
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMedicine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgtvPrintMedicine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvPrintMedicine)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,7 +490,7 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAmount;
-        private System.Windows.Forms.DataGridView dgtvPrintMedicine;
+        private System.Windows.Forms.DataGridView dtgvPrintMedicine;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
     }

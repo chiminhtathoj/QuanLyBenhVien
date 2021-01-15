@@ -83,38 +83,25 @@ namespace QuanLyBenhVien
 
                 if (PrescriptionBUS.Instance.InsertPrescription(idResult, Dategenerate))// thêm đơn thuốc
                 {
-                    for (int i = 0; i < lvMedicinePicked.Items.Count; i++)
+                    for (int i = 0; i < lvMedicinePicked.Items.Count; i++) //duyệt vào từng phần tử trong lv rồi thêm chi tiết hóa đơn cho mỗi phần tử
                     {
-                        int.TryParse( lvMedicinePicked.Items[i].SubItems[0].Text,out idMedicine);
+                        int.TryParse(lvMedicinePicked.Items[i].SubItems[0].Text, out idMedicine);
                         int.TryParse(lvMedicinePicked.Items[i].SubItems[4].Text, out Among);
                         rtbGuide.Text = lvMedicinePicked.Items[i].SubItems[5].Text;
-                        PrescriptionInfoBUS.Instance.InsertPrescriptionInfo(idMedicine,PrescriptionBUS.Instance.GetMaxIDPrescription(), Among, rtbGuide.Text);
+                        PrescriptionInfoBUS.Instance.InsertPrescriptionInfo(idMedicine, PrescriptionBUS.Instance.GetMaxIDPrescription(), Among, rtbGuide.Text);
                     }
-                    //if (PrescriptionInfoBUS.Instance.InsertListPrescriptionInfofromLV(lvMedicinePicked, txtAmount, rtbGuide))//thêm list chi tiết phiếu xét nghiệm
-                    //{
-
-                    //    MessageBox.Show("Tạo hóa đơn thành công!");
-                    //    //lập phiếu xét nghiệm
-                    //    //DGVPrinter printer = new DGVPrinter();
-                    //    //TestInfoBUS.Instance.GetListTestInfoByTestID(TestBUS.Instance.GetMaxIDTest(), dtgvPrintTest);
-                    //    //dtgvPrintTest.Columns[0].HeaderText = "Mã chi tiết xét nghiệm";
-                    //    //dtgvPrintTest.Columns[1].HeaderText = "Mã phiếu khám";
-                    //    //dtgvPrintTest.Columns[2].HeaderText = "Mã dịch vụ";
-                    //    //dtgvPrintTest.Columns[3].HeaderText = "Ngày xét nghiệm";
-                    //    //dtgvPrintTest.Columns[4].HeaderText = "yêu cầu xét nghiệm";
-                    //    //foreach (DataGridViewColumn col in dtgvPrintTest.Columns)
-                    //    //{
-                    //    //    col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề
-                    //    //}
-                    //    //printer.Title = " \r\n\r\r Phiếu xét nghiệm\r\n\r\n  ";
-                    //    //printer.SubTitle = "Tên bệnh nhân: " + PatientBUS.Instance.GetNamePatientByMedicalBillID(idResult) + "   Mã phiếu khám:  " + TestBUS.Instance.GetMaxIDTest();
-                    //    //printer.PageNumbers = true;
-                    //    //printer.PageNumberInHeader = false;
-                    //    //printer.PorportionalColumns = true;
-                    //    //printer.HeaderCellAlignment = StringAlignment.Near;
-                    //    //printer.PrintDataGridView(dtgvPrintTest);
-                    //    //this.Close();
-                    //}
+                    MessageBox.Show("Tạo đơn thuốc thành công!");
+                    //In đơn thuốc
+                    DGVPrinter printer = new DGVPrinter();
+                    PrescriptionInfoBUS.Instance.GetListPreInfoByPreID(PrescriptionBUS.Instance.GetMaxIDPrescription(), dtgvPrintMedicine);
+                    printer.Title = " \r\n\r\r Đơn thuốc\r\n\r\n  ";
+                    //printer.SubTitle = "Tên bệnh nhân: " + PatientBUS.Instance.GetNamePatientByMedicalBillID(idResult) + "   Mã phiếu khám:  " + TestBUS.Instance.GetMaxIDTest();
+                    printer.PageNumbers = true;
+                    printer.PageNumberInHeader = false;
+                    printer.PorportionalColumns = true;
+                    printer.HeaderCellAlignment = StringAlignment.Near;
+                    printer.PrintDataGridView(dtgvPrintMedicine);
+                    this.Close();
                 }
                 else
                 {
