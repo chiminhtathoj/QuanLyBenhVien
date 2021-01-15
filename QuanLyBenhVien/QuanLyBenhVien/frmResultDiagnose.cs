@@ -16,6 +16,7 @@ namespace QuanLyBenhVien
         public frmResultDiagnose()
         {
             InitializeComponent();
+            txtIDTest.Text = TestBUS.Instance.GetMaxIDTest().ToString();
         }
 
         private void btnSearchTestByTestID_Click(object sender, EventArgs e)
@@ -30,6 +31,11 @@ namespace QuanLyBenhVien
             if (string.IsNullOrEmpty(txtIDTest.Text))
             {
                 MessageBox.Show("Vui lòng chọn phiếu xét nghiệm!");
+                return;
+            }
+            if (int.Parse(txtIDTest.Text) > TestBUS.Instance.GetMaxIDTest() || int.Parse(txtIDTest.Text) < 1)
+            {
+                MessageBox.Show("Vui lòng chọn phiếu xét nghiệm hợp lệ!");
                 return;
             }
             if (string.IsNullOrEmpty(rtbResultDiagnose.Text))
@@ -47,13 +53,35 @@ namespace QuanLyBenhVien
                 MessageBox.Show("Vui lòng chọn ngày!");
                 return;
             }
+            if (ResultDiagnoseBUS.Instance.isTestExist(int.Parse(txtIDTest.Text)))
+            {
+                MessageBox.Show("Bệnh nhân trong mã phiếu này đả có kết quả rồi!");
+                return;
+            }
             int idTest = 0;
             int.TryParse(txtIDTest.Text, out idTest);
             ResultDiagnoseBUS.Instance.InsertResultDiagnose(idTest, dtpkDateResult.Value, rtbResultDiagnose.Text, cbbDOT.Text);
+            MessageBox.Show("Thêm phiếu kết quả thành công!");
             if (string.Equals(cbbDOT.Text,"Ngoại trú"))
             {
                 this.Close();
                 frmPrescription f = new frmPrescription();
+                f.ShowDialog();
+            }
+            if (string.Equals(cbbDOT.Text, "Không có bệnh"))
+            {
+                this.Close();
+            }
+            if (string.Equals(cbbDOT.Text, "Nhập viện"))
+            {
+                this.Close();
+                frmMedicalRecord f = new frmMedicalRecord();
+                f.ShowDialog();
+            }
+            if (string.Equals(cbbDOT.Text, "Chuyển viện"))
+            {
+                this.Close();
+                frmTransfer f = new frmTransfer();
                 f.ShowDialog();
             }
         }

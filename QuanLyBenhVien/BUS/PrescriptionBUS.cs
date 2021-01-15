@@ -22,7 +22,7 @@ namespace BUS
         {
 
         }
-        public void GetResultByIDPatient(int id, DataGridView dgtv)
+        public void GetPatientByIDresult(int id, DataGridView dgtv)
         {
             string query = string.Format("select bn.MaBN,bn.hotenbn,bs.hotenbs from KETQUA kq join XETNGHIEM xn on kq.MaXN = xn.MaXN join BENHNHAN bn on bn.MaBN=xn.MaBN join PHIEUKHAM pk on pk.MaPK=xn.mapk join BACSI bs on pk.MaBS=bs.MaBS where kq.makq={0}", id);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
@@ -35,6 +35,7 @@ namespace BUS
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề
             }
         }
+      
         public bool InsertPrescription(int idResult, DateTime generateDay)
         {
             string query = string.Format("insert into DONTHUOC (MaKQ,NGAYTAO)VALUES ( N'{0}',N'{1}')", idResult, generateDay);
@@ -50,6 +51,18 @@ namespace BUS
                 return (int)DataProvider.Instance.ExecuteScalar("select max(MaDT) from Donthuoc ");
             }
             return 0;
+        }
+        public bool isResultExist(int id)
+        {
+            string query = string.Format("select * from DONTHUOC where MaKQ= N'{0}'", id);
+            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

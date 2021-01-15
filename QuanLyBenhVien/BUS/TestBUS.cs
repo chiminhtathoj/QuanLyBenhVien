@@ -49,6 +49,19 @@ namespace BUS
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề
             }
         }
+        public bool isMedicalBillExist(int idMedicalBill)
+        {
+            string query = string.Format("select * from XETNGHIEM where MAPK= N'{0}'", idMedicalBill);
+
+            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
     }
 }

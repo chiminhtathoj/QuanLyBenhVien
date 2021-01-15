@@ -43,6 +43,19 @@ namespace BUS
             }
             return "";
         }
+        public List<PatientDTO> GetPatientByID(int id)
+        {
+            List<PatientDTO> listPatient = new List<PatientDTO>();
+
+            DataTable data = DataProvider.Instance.ExecuteQuery("select * from BENHNHAN where MaBN="+ id);
+            foreach (DataRow item in data.Rows)
+            {
+                PatientDTO patient = new PatientDTO(item);
+                listPatient.Add(patient);
+            }
+            return listPatient;
+        }
+
         public int GetIDPatientByMedicalBillID(int id)
         {
             string query = string.Format("Select MaBN from PHIEUKHAM where MaPK={0}", id);
@@ -68,6 +81,18 @@ namespace BUS
             dtgvPatient.Columns[6].HeaderText = "Địa chỉ";
             dtgvPatient.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy"; // chỉnh format hiển thị ngày thành dd/mm
             foreach (DataGridViewColumn col in dtgvPatient.Columns)
+            {
+                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề
+            }
+        }
+        public void LoadPatientByID(int id, DataGridView dgtv)
+        {
+            string query = string.Format("select MaBN,HoTenBN from BENHNHAN where MaBN={0}", id);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            dgtv.DataSource = data;
+            dgtv.Columns[0].HeaderText = "Mã bệnh nhân";
+            dgtv.Columns[1].HeaderText = "Tên bệnh nhân";
+            foreach (DataGridViewColumn col in dgtv.Columns)
             {
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề
             }

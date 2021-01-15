@@ -26,3 +26,5 @@ C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\Qu
 C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\bin\Debug\DevComponents.DotNetBar2.dll
 C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\bin\Debug\DevComponents.DotNetBar2.xml
 C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.frmPrescription.resources
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.frmMedicalRecord.resources
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.frmTransfer.resources

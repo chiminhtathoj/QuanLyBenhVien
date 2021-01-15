@@ -25,7 +25,7 @@ namespace QuanLyBenhVien
         {
             int id = ResultDiagnoseBUS.Instance.GetMaxIDResulDiagnose();
             txtIDResult.Text = id.ToString();
-            PrescriptionBUS.Instance.GetResultByIDPatient(id, dtgvPrescription);
+            PrescriptionBUS.Instance.GetPatientByIDresult(id, dtgvPrescription);
             MedicineBUS.Instance.LoadMedicine(dtgvMedicine, MedicineBinding);
             AddMedicineBinding();
         }
@@ -71,6 +71,21 @@ namespace QuanLyBenhVien
 
         private void btnInsertTest_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtIDResult.Text))
+            {
+                MessageBox.Show("Vui lòng nhập mã kết quả!");
+                return;
+            }
+            if (int.Parse(txtIDResult.Text)> ResultDiagnoseBUS.Instance.GetMaxIDResulDiagnose() || int.Parse(txtIDResult.Text)<1)
+            {
+                MessageBox.Show("Vui lòng nhập mã kết quả hợp lệ!");
+                return;
+            }
+            if (PrescriptionBUS.Instance.isResultExist(int.Parse(txtIDResult.Text)))
+            {
+                MessageBox.Show("Bệnh nhân của mã kết quả này có đơn thuốc rồi!");
+                return;
+            }
             if (lvMedicinePicked.Items.Count != 0)
             // nếu không có thuốc trong listview thì bảo người dùng nhập lại
             {
@@ -113,6 +128,13 @@ namespace QuanLyBenhVien
                 MessageBox.Show("Vui lòng chọn thuốc!");
             }
 
+        }
+
+        private void btnSearchPrescription_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            int.TryParse(txtIDResult.Text, out id);
+            PrescriptionBUS.Instance.GetPatientByIDresult(id, dtgvPrescription);
         }
     }
 }

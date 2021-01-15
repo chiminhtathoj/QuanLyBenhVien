@@ -71,6 +71,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMedicalRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedicalRecord.Designer.cs">
+      <DependentUpon>frmMedicalRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrescription.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,12 @@
     <Compile Include="frmResultDiagnose.Designer.cs">
       <DependentUpon>frmResultDiagnose.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransfer.Designer.cs">
+      <DependentUpon>frmTransfer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmExamination.resx">
@@ -103,6 +115,9 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMedicalRecord.resx">
+      <DependentUpon>frmMedicalRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrescription.resx">
       <DependentUpon>frmPrescription.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmResultDiagnose.resx">
       <DependentUpon>frmResultDiagnose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransfer.resx">
+      <DependentUpon>frmTransfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

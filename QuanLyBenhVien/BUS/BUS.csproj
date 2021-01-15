@@ -53,6 +53,7 @@
     <Compile Include="DGVPrinter.cs" />
     <Compile Include="DoctorBUS.cs" />
     <Compile Include="MedicalBillBUS.cs" />
+    <Compile Include="MedicalRecordBUS.cs" />
     <Compile Include="MedicineBUS.cs" />
     <Compile Include="PatientBUS.cs" />
     <Compile Include="PrescriptionBUS.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="ServiceBUS.cs" />
     <Compile Include="TestBUS.cs" />
     <Compile Include="TestInfoBUS.cs" />
+    <Compile Include="TransferBUS.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

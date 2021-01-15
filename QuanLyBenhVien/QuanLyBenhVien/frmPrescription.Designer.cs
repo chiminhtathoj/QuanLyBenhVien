@@ -31,7 +31,6 @@ namespace QuanLyBenhVien
         {
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSearchPaient = new System.Windows.Forms.Button();
             this.txtIDResult = new System.Windows.Forms.TextBox();
             this.dtgvPrescription = new System.Windows.Forms.DataGridView();
             this.label16 = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@ namespace QuanLyBenhVien
             this.dtgvPrintMedicine = new System.Windows.Forms.DataGridView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnSearchPrescription = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPrescription)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -85,7 +85,7 @@ namespace QuanLyBenhVien
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnSearchPaient);
+            this.groupBox1.Controls.Add(this.btnSearchPrescription);
             this.groupBox1.Controls.Add(this.txtIDResult);
             this.groupBox1.Controls.Add(this.dtgvPrescription);
             this.groupBox1.Controls.Add(this.label16);
@@ -95,16 +95,6 @@ namespace QuanLyBenhVien
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin bệnh nhân";
-            // 
-            // btnSearchPaient
-            // 
-            this.btnSearchPaient.Location = new System.Drawing.Point(162, 17);
-            this.btnSearchPaient.Name = "btnSearchPaient";
-            this.btnSearchPaient.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchPaient.TabIndex = 17;
-            this.btnSearchPaient.Text = "Tìm kiếm";
-            this.btnSearchPaient.UseVisualStyleBackColor = true;
-            this.btnSearchPaient.Click += new System.EventHandler(this.btnSearchPaient_Click);
             // 
             // txtIDResult
             // 
@@ -432,6 +422,16 @@ namespace QuanLyBenhVien
             this.columnHeader5.Text = "Hướng dẫn";
             this.columnHeader5.Width = 77;
             // 
+            // btnSearchPrescription
+            // 
+            this.btnSearchPrescription.Location = new System.Drawing.Point(162, 16);
+            this.btnSearchPrescription.Name = "btnSearchPrescription";
+            this.btnSearchPrescription.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchPrescription.TabIndex = 17;
+            this.btnSearchPrescription.Text = "Tìm kiếm";
+            this.btnSearchPrescription.UseVisualStyleBackColor = true;
+            this.btnSearchPrescription.Click += new System.EventHandler(this.btnSearchPrescription_Click);
+            // 
             // frmPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,7 +458,6 @@ namespace QuanLyBenhVien
 
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnSearchPaient;
         private System.Windows.Forms.TextBox txtIDResult;
         private System.Windows.Forms.DataGridView dtgvPrescription;
         private System.Windows.Forms.Label label16;
@@ -493,5 +492,6 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.DataGridView dtgvPrintMedicine;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button btnSearchPrescription;
     }
 }

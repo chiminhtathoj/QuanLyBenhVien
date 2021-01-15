@@ -37,6 +37,18 @@ namespace BUS
             }
             return 0;
         }
-
+        public bool isTestExist(int idTest)
+        {
+            string query = string.Format("select * from KETQUA where MAXN= N'{0}'", idTest);
+            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        
     }
 }

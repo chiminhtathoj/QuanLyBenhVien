@@ -21,6 +21,7 @@ namespace QuanLyBenhVien
         void LoadAll()
         {
             ServiceBUS.Instance.LoadAllServiceToCBB(cbbNameService);
+            txtIDMedicalBill.Text= MedicalBillBUS.Instance.GetMaxIDMedicalBill().ToString();
         }
         private void btnSearchMedicalByIDMedicalBill_Click(object sender, EventArgs e)
         {
@@ -46,11 +47,17 @@ namespace QuanLyBenhVien
                 MessageBox.Show("Vui lòng chọn mã phiếu khám");
                 return;
             }
-            if(int.Parse(txtIDMedicalBill.Text)> MedicalBillBUS.Instance.GetMaxIDMedicalBill())
+            if(int.Parse(txtIDMedicalBill.Text)> MedicalBillBUS.Instance.GetMaxIDMedicalBill() || int.Parse(txtIDMedicalBill.Text)<1)
             {
                 MessageBox.Show("Vui lòng chọn đúng mã phiếu khám");
                 return;
             }
+            if (TestBUS.Instance.isMedicalBillExist(int.Parse(txtIDMedicalBill.Text)))
+            {
+                MessageBox.Show("bệnh này đả được khám rồi");
+                return;
+            }
+            
             int idMedicalBill = 0;
             int.TryParse(txtIDMedicalBill.Text, out idMedicalBill);
             int id =PatientBUS.Instance.GetIDPatientByMedicalBillID(idMedicalBill);
