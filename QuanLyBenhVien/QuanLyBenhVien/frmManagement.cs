@@ -17,6 +17,7 @@ namespace QuanLyBenhVien
         BindingSource PatientBinding = new BindingSource();
         BindingSource DoctorBinding = new BindingSource();
         BindingSource ServiceBinding = new BindingSource();
+        BindingSource MedicineBinding = new BindingSource();
         string currentAcc;
         public frmManagement(string acc)
         {
@@ -35,6 +36,8 @@ namespace QuanLyBenhVien
             AddDoctorBinding();
             ServiceBUS.Instance.LoadService(dtgvService, ServiceBinding);
             AddServiceBinding();
+            MedicineBUS.Instance.LoadMedicine(dtgvMedicine, MedicineBinding);
+            AddMedicineBinding();
         }
         void authorization(string acc)// phần quyền người dùng trong form quản lý
         {
@@ -579,10 +582,10 @@ namespace QuanLyBenhVien
         {
             int id = 0;
             int.TryParse(txtIDService.Text, out id);
-            string nameservice = txtNameService.Text;
+            string name = txtNameService.Text;
             double price = 0;
             double.TryParse(txtPriceService.Text, out price);
-            if (string.IsNullOrWhiteSpace(nameservice)) // check các textbox phải điền đầy đủ mới cho thêm 
+            if (string.IsNullOrWhiteSpace(name)) // check các textbox phải điền đầy đủ mới cho thêm 
             {
                 MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
                 return;
@@ -597,7 +600,7 @@ namespace QuanLyBenhVien
                 MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
                 return;
             }
-            if (ServiceBUS.Instance.UpdateService(id, nameservice, price))
+            if (ServiceBUS.Instance.UpdateService(id, name, price))
             {
                 MessageBox.Show("Sửa thành công", "Thông báo");
                 ServiceBUS.Instance.LoadService(dtgvService, ServiceBinding);
@@ -616,6 +619,105 @@ namespace QuanLyBenhVien
             ServiceBUS.Instance.SearchListServiceByName(txtSearchService.Text, ServiceBinding);
         }
         #endregion
+        #region Medicine
+        void AddMedicineBinding()
+        {
+            txtIDMedicine.DataBindings.Add(new Binding("text", dtgvMedicine.DataSource, "MATHUOC", true, DataSourceUpdateMode.Never));
+            txtNameMedicine.DataBindings.Add(new Binding("text", dtgvMedicine.DataSource, "tenthuoc", true, DataSourceUpdateMode.Never));
+            cbbUnitMedicine.DataBindings.Add(new Binding("text", dtgvMedicine.DataSource, "DonVi", true, DataSourceUpdateMode.Never));
+            txtPriceMedicine.DataBindings.Add(new Binding("text", dtgvMedicine.DataSource, "DonGia", true, DataSourceUpdateMode.Never));
+        }
+        private void btnAddMedicine_Click(object sender, EventArgs e)
+        {
+            string namemedicine = txtNameMedicine.Text;
+            double price = 0;
+            double.TryParse(txtPriceMedicine.Text, out price);
+            string unit = cbbUnitMedicine.Text;
+            if (string.IsNullOrWhiteSpace(namemedicine)) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng điền tên", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(price.ToString()))
+            {
+                MessageBox.Show("Vui lòng điền đơn giá", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(unit))
+            {
+                MessageBox.Show("Vui lòng chọn đơn vị thuốc", "thông báo");
+                return;
+            }
+            if (MedicineBUS.Instance.InsertMedicine(namemedicine, unit,price))
+            {
+                MessageBox.Show("Thêm thành công", "Thông báo");
+                MedicineBUS.Instance.LoadMedicine(dtgvMedicine, MedicineBinding);
+            }
+            else
+                MessageBox.Show("Thêm thất bại", "Thông báo");
+        }
 
+        private void btnDeleteMedicine_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            int.TryParse(txtIDMedicine.Text, out id);
+            if (string.IsNullOrWhiteSpace(id.ToString()))
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần xóa", "thông báo");
+                return;
+            }
+            if (MedicineBUS.Instance.DeleteMedicine(id))
+            {
+                MessageBox.Show("Xóa thành công", "Thông báo");
+                MedicineBUS.Instance.LoadMedicine(dtgvMedicine, MedicineBinding);
+            }
+            else
+                MessageBox.Show("Xóa thất bại", "Thông báo");
+        }
+
+        private void btnEditMedicine_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            int.TryParse(txtIDMedicine.Text, out id);
+            string name = txtNameMedicine.Text;
+            string unit = cbbUnitMedicine.Text;
+            double price = 0;
+            double.TryParse(txtPriceMedicine.Text, out price);
+            if (string.IsNullOrWhiteSpace(name)) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(id.ToString())) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(price.ToString()))
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
+                return;
+            }
+            if (MedicineBUS.Instance.UpdateMedicine(id, name,unit, price))
+            {
+                MessageBox.Show("Sửa thành công", "Thông báo");
+                MedicineBUS.Instance.LoadMedicine(dtgvMedicine, MedicineBinding);
+            }
+            else
+                MessageBox.Show("Sửa thất bại", "Thông báo");
+        }
+
+        private void btnLoadMedicine_Click(object sender, EventArgs e)
+        {
+            MedicineBUS.Instance.LoadMedicine(dtgvMedicine, MedicineBinding);
+        }
+        #endregion
+
+        private void btnSearchMedicineByName_Click(object sender, EventArgs e)
+        {
+            MedicineBUS.Instance.SearchListMedicineByName(txtSearchMedicine.Text, MedicineBinding);
+        }
+
+        
     }
 }

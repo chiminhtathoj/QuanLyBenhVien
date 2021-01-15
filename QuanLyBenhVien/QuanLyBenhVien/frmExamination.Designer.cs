@@ -36,7 +36,6 @@ namespace QuanLyBenhVien
             this.label16 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtResquestTest = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpkDateMedicalExamination = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@ namespace QuanLyBenhVien
             this.label8 = new System.Windows.Forms.Label();
             this.btnInsertTest = new System.Windows.Forms.Button();
             this.dtgvPrintTest = new System.Windows.Forms.DataGridView();
+            this.rtbResquestTest = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvExamination)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -119,7 +119,7 @@ namespace QuanLyBenhVien
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtResquestTest);
+            this.groupBox2.Controls.Add(this.rtbResquestTest);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.dtpkDateMedicalExamination);
             this.groupBox2.Controls.Add(this.label9);
@@ -134,14 +134,6 @@ namespace QuanLyBenhVien
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Xét nghiệm cần làm";
-            // 
-            // txtResquestTest
-            // 
-            this.txtResquestTest.Location = new System.Drawing.Point(108, 89);
-            this.txtResquestTest.Multiline = true;
-            this.txtResquestTest.Name = "txtResquestTest";
-            this.txtResquestTest.Size = new System.Drawing.Size(376, 94);
-            this.txtResquestTest.TabIndex = 20;
             // 
             // label1
             // 
@@ -235,9 +227,9 @@ namespace QuanLyBenhVien
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 26);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 13);
+            this.label8.Size = new System.Drawing.Size(102, 13);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Loại bảo hiểm y tế:";
+            this.label8.Text = "Tên loại xét nghiệm:";
             // 
             // btnInsertTest
             // 
@@ -257,6 +249,14 @@ namespace QuanLyBenhVien
             this.dtgvPrintTest.Size = new System.Drawing.Size(240, 29);
             this.dtgvPrintTest.TabIndex = 15;
             this.dtgvPrintTest.Visible = false;
+            // 
+            // rtbResquestTest
+            // 
+            this.rtbResquestTest.Location = new System.Drawing.Point(108, 87);
+            this.rtbResquestTest.Name = "rtbResquestTest";
+            this.rtbResquestTest.Size = new System.Drawing.Size(383, 96);
+            this.rtbResquestTest.TabIndex = 20;
+            this.rtbResquestTest.Text = "";
             // 
             // frmExamination
             // 
@@ -299,11 +299,11 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnAddService;
         private System.Windows.Forms.Button btnDeleteService;
-        private System.Windows.Forms.TextBox txtResquestTest;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpkDateMedicalExamination;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnInsertTest;
         private System.Windows.Forms.DataGridView dtgvPrintTest;
+        private System.Windows.Forms.RichTextBox rtbResquestTest;
     }
 }

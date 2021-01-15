@@ -23,3 +23,6 @@ C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\Qu
 C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.frmManagement.resources
 C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.frmExamination.resources
 C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.frmResultDiagnose.resources
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\bin\Debug\DevComponents.DotNetBar2.dll
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\bin\Debug\DevComponents.DotNetBar2.xml
+C:\New folder\PT1\DALT\QuanLyBenhVien\QuanLyBenhVien\QuanLyBenhVien\obj\Debug\QuanLyBenhVien.frmPrescription.resources

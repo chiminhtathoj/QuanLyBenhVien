@@ -47,7 +47,7 @@ namespace BUS
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
-        public bool InsertListTestInfofromLV(System.Windows.Forms.ListView lv,DateTime datetest,TextBox txt)
+        public bool InsertListTestInfofromLV(System.Windows.Forms.ListView lv,DateTime datetest,RichTextBox txt)
         {
             int idTest = TestBUS.Instance.GetMaxIDTest();
             if (lv.Items.Count != 0)

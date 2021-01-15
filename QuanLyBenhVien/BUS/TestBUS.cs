@@ -22,9 +22,9 @@ namespace BUS
         {
             
         }
-        public bool InsertTest(int idPatient)
+        public bool InsertTest(int idPatient,int idMedicalBill)
         {
-            string query = string.Format("insert into XETNGHIEM (MaBN)VALUES ( N'{0}')",idPatient);
+            string query = string.Format("insert into XETNGHIEM (MaBN,MaPK)VALUES ( N'{0}',N'{1}')", idPatient, idMedicalBill);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

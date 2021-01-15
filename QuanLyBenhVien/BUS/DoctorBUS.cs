@@ -54,6 +54,16 @@ namespace BUS
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề
             }
         }
+        public int GetIDDoctorByMedicalBillID(int id)
+        {
+            string query = string.Format("Select MaBS from PHIEUKHAM where MaPK={0}", id);
+
+            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            {
+                return (int)DataProvider.Instance.ExecuteScalar(query);
+            }
+            return -1;
+        }
 
         #region CRUD
         public bool InsertDoctor(string idCard, string name, DateTime DOB, string sex, string phone, string address,int makhoa)

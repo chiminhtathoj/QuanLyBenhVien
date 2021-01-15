@@ -110,6 +110,24 @@ namespace QuanLyBenhVien
             this.btnSearchServiceByName = new System.Windows.Forms.Button();
             this.txtSearchService = new System.Windows.Forms.TextBox();
             this.dtgvService = new System.Windows.Forms.DataGridView();
+            this.tpMedicine = new System.Windows.Forms.TabPage();
+            this.dtgvMedicine = new System.Windows.Forms.DataGridView();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.txtIDMedicine = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtPriceMedicine = new System.Windows.Forms.TextBox();
+            this.txtNameMedicine = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.btnSearchMedicineByName = new System.Windows.Forms.Button();
+            this.txtSearchMedicine = new System.Windows.Forms.TextBox();
+            this.btnLoadMedicine = new System.Windows.Forms.Button();
+            this.btnEditMedicine = new System.Windows.Forms.Button();
+            this.btnDeleteMedicine = new System.Windows.Forms.Button();
+            this.btnAddMedicine = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.cbbUnitMedicine = new System.Windows.Forms.ComboBox();
             this.patientBUSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tcManagement.SuspendLayout();
             this.tpAccount.SuspendLayout();
@@ -124,6 +142,9 @@ namespace QuanLyBenhVien
             this.tpService.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvService)).BeginInit();
+            this.tpMedicine.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMedicine)).BeginInit();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientBUSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,6 +154,7 @@ namespace QuanLyBenhVien
             this.tcManagement.Controls.Add(this.tpPatient);
             this.tcManagement.Controls.Add(this.tbDoctor);
             this.tcManagement.Controls.Add(this.tpService);
+            this.tcManagement.Controls.Add(this.tpMedicine);
             this.tcManagement.Location = new System.Drawing.Point(2, 1);
             this.tcManagement.Name = "tcManagement";
             this.tcManagement.SelectedIndex = 0;
@@ -981,6 +1003,196 @@ namespace QuanLyBenhVien
             this.dtgvService.TabIndex = 3;
             this.dtgvService.TabStop = false;
             // 
+            // tpMedicine
+            // 
+            this.tpMedicine.Controls.Add(this.btnLoadMedicine);
+            this.tpMedicine.Controls.Add(this.btnEditMedicine);
+            this.tpMedicine.Controls.Add(this.btnDeleteMedicine);
+            this.tpMedicine.Controls.Add(this.btnAddMedicine);
+            this.tpMedicine.Controls.Add(this.panel5);
+            this.tpMedicine.Controls.Add(this.dtgvMedicine);
+            this.tpMedicine.Location = new System.Drawing.Point(4, 22);
+            this.tpMedicine.Name = "tpMedicine";
+            this.tpMedicine.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMedicine.Size = new System.Drawing.Size(1402, 630);
+            this.tpMedicine.TabIndex = 4;
+            this.tpMedicine.Text = "Thuốc";
+            this.tpMedicine.UseVisualStyleBackColor = true;
+            // 
+            // dtgvMedicine
+            // 
+            this.dtgvMedicine.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvMedicine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvMedicine.Location = new System.Drawing.Point(6, 3);
+            this.dtgvMedicine.Name = "dtgvMedicine";
+            this.dtgvMedicine.ReadOnly = true;
+            this.dtgvMedicine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvMedicine.Size = new System.Drawing.Size(1021, 624);
+            this.dtgvMedicine.TabIndex = 4;
+            this.dtgvMedicine.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.cbbUnitMedicine);
+            this.panel5.Controls.Add(this.label29);
+            this.panel5.Controls.Add(this.txtIDMedicine);
+            this.panel5.Controls.Add(this.label25);
+            this.panel5.Controls.Add(this.txtPriceMedicine);
+            this.panel5.Controls.Add(this.txtNameMedicine);
+            this.panel5.Controls.Add(this.label26);
+            this.panel5.Controls.Add(this.label27);
+            this.panel5.Controls.Add(this.label28);
+            this.panel5.Controls.Add(this.btnSearchMedicineByName);
+            this.panel5.Controls.Add(this.txtSearchMedicine);
+            this.panel5.Location = new System.Drawing.Point(1030, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(372, 480);
+            this.panel5.TabIndex = 5;
+            // 
+            // txtIDMedicine
+            // 
+            this.txtIDMedicine.Location = new System.Drawing.Point(191, 55);
+            this.txtIDMedicine.Name = "txtIDMedicine";
+            this.txtIDMedicine.ReadOnly = true;
+            this.txtIDMedicine.Size = new System.Drawing.Size(174, 20);
+            this.txtIDMedicine.TabIndex = 16;
+            this.txtIDMedicine.TabStop = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(32, 56);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(85, 19);
+            this.label25.TabIndex = 15;
+            this.label25.Text = "Mã thuốc:";
+            // 
+            // txtPriceMedicine
+            // 
+            this.txtPriceMedicine.Location = new System.Drawing.Point(191, 121);
+            this.txtPriceMedicine.Name = "txtPriceMedicine";
+            this.txtPriceMedicine.Size = new System.Drawing.Size(174, 20);
+            this.txtPriceMedicine.TabIndex = 10;
+            // 
+            // txtNameMedicine
+            // 
+            this.txtNameMedicine.Location = new System.Drawing.Point(191, 90);
+            this.txtNameMedicine.Name = "txtNameMedicine";
+            this.txtNameMedicine.Size = new System.Drawing.Size(174, 20);
+            this.txtNameMedicine.TabIndex = 2;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(42, 120);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(75, 19);
+            this.label26.TabIndex = 9;
+            this.label26.Text = "Đơn giá:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(25, 89);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(92, 19);
+            this.label27.TabIndex = 8;
+            this.label27.Text = "Tên thuốc:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(101, 28);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(170, 24);
+            this.label28.TabIndex = 7;
+            this.label28.Text = "Thông tin thuốc";
+            // 
+            // btnSearchMedicineByName
+            // 
+            this.btnSearchMedicineByName.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchMedicineByName.Location = new System.Drawing.Point(276, 2);
+            this.btnSearchMedicineByName.Name = "btnSearchMedicineByName";
+            this.btnSearchMedicineByName.Size = new System.Drawing.Size(89, 23);
+            this.btnSearchMedicineByName.TabIndex = 1;
+            this.btnSearchMedicineByName.Text = "Tìm kiếm";
+            this.btnSearchMedicineByName.UseVisualStyleBackColor = true;
+            this.btnSearchMedicineByName.Click += new System.EventHandler(this.btnSearchMedicineByName_Click);
+            // 
+            // txtSearchMedicine
+            // 
+            this.txtSearchMedicine.Location = new System.Drawing.Point(3, 3);
+            this.txtSearchMedicine.Name = "txtSearchMedicine";
+            this.txtSearchMedicine.Size = new System.Drawing.Size(267, 20);
+            this.txtSearchMedicine.TabIndex = 0;
+            // 
+            // btnLoadMedicine
+            // 
+            this.btnLoadMedicine.Location = new System.Drawing.Point(1268, 570);
+            this.btnLoadMedicine.Name = "btnLoadMedicine";
+            this.btnLoadMedicine.Size = new System.Drawing.Size(85, 40);
+            this.btnLoadMedicine.TabIndex = 12;
+            this.btnLoadMedicine.Text = "Xem";
+            this.btnLoadMedicine.UseVisualStyleBackColor = true;
+            this.btnLoadMedicine.Click += new System.EventHandler(this.btnLoadMedicine_Click);
+            // 
+            // btnEditMedicine
+            // 
+            this.btnEditMedicine.Location = new System.Drawing.Point(1076, 570);
+            this.btnEditMedicine.Name = "btnEditMedicine";
+            this.btnEditMedicine.Size = new System.Drawing.Size(85, 40);
+            this.btnEditMedicine.TabIndex = 11;
+            this.btnEditMedicine.Text = "Sửa";
+            this.btnEditMedicine.UseVisualStyleBackColor = true;
+            this.btnEditMedicine.Click += new System.EventHandler(this.btnEditMedicine_Click);
+            // 
+            // btnDeleteMedicine
+            // 
+            this.btnDeleteMedicine.Location = new System.Drawing.Point(1268, 504);
+            this.btnDeleteMedicine.Name = "btnDeleteMedicine";
+            this.btnDeleteMedicine.Size = new System.Drawing.Size(85, 40);
+            this.btnDeleteMedicine.TabIndex = 10;
+            this.btnDeleteMedicine.Text = "Xóa";
+            this.btnDeleteMedicine.UseVisualStyleBackColor = true;
+            this.btnDeleteMedicine.Click += new System.EventHandler(this.btnDeleteMedicine_Click);
+            // 
+            // btnAddMedicine
+            // 
+            this.btnAddMedicine.Location = new System.Drawing.Point(1076, 504);
+            this.btnAddMedicine.Name = "btnAddMedicine";
+            this.btnAddMedicine.Size = new System.Drawing.Size(85, 40);
+            this.btnAddMedicine.TabIndex = 9;
+            this.btnAddMedicine.Text = "Thêm";
+            this.btnAddMedicine.UseVisualStyleBackColor = true;
+            this.btnAddMedicine.Click += new System.EventHandler(this.btnAddMedicine_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(52, 160);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(65, 19);
+            this.label29.TabIndex = 17;
+            this.label29.Text = "Đơn vị:";
+            // 
+            // cbbUnitMedicine
+            // 
+            this.cbbUnitMedicine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbUnitMedicine.FormattingEnabled = true;
+            this.cbbUnitMedicine.Items.AddRange(new object[] {
+            "Chai",
+            "Hộp",
+            "Viên"});
+            this.cbbUnitMedicine.Location = new System.Drawing.Point(191, 157);
+            this.cbbUnitMedicine.Name = "cbbUnitMedicine";
+            this.cbbUnitMedicine.Size = new System.Drawing.Size(174, 21);
+            this.cbbUnitMedicine.TabIndex = 18;
+            // 
             // patientBUSBindingSource
             // 
             this.patientBUSBindingSource.DataSource = typeof(BUS.PatientBUS);
@@ -1012,6 +1224,10 @@ namespace QuanLyBenhVien
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvService)).EndInit();
+            this.tpMedicine.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMedicine)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientBUSBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1100,5 +1316,23 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.DataGridView dtgvService;
         private System.Windows.Forms.TextBox txtIDService;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TabPage tpMedicine;
+        private System.Windows.Forms.Button btnLoadMedicine;
+        private System.Windows.Forms.Button btnEditMedicine;
+        private System.Windows.Forms.Button btnDeleteMedicine;
+        private System.Windows.Forms.Button btnAddMedicine;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox cbbUnitMedicine;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox txtIDMedicine;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txtPriceMedicine;
+        private System.Windows.Forms.TextBox txtNameMedicine;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Button btnSearchMedicineByName;
+        private System.Windows.Forms.TextBox txtSearchMedicine;
+        private System.Windows.Forms.DataGridView dtgvMedicine;
     }
 }

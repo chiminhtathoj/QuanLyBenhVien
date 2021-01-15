@@ -41,12 +41,22 @@ namespace QuanLyBenhVien
 
         private void btnInsertTest_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtIDMedicalBill.Text))
+            {
+                MessageBox.Show("Vui lòng chọn mã phiếu khám");
+                return;
+            }
+            if(int.Parse(txtIDMedicalBill.Text)> MedicalBillBUS.Instance.GetMaxIDMedicalBill())
+            {
+                MessageBox.Show("Vui lòng chọn đúng mã phiếu khám");
+                return;
+            }
             int idMedicalBill = 0;
             int.TryParse(txtIDMedicalBill.Text, out idMedicalBill);
             int id =PatientBUS.Instance.GetIDPatientByMedicalBillID(idMedicalBill);
-            if (TestBUS.Instance.InsertTest(id))
+            if (TestBUS.Instance.InsertTest(id,DoctorBUS.Instance.GetIDDoctorByMedicalBillID(idMedicalBill))) // thêm phiếu xét nghiệm
             {
-               if(TestInfoBUS.Instance.InsertListTestInfofromLV(lvService, dtpkDateMedicalExamination.Value, txtResquestTest))
+               if(TestInfoBUS.Instance.InsertListTestInfofromLV(lvService, dtpkDateMedicalExamination.Value, rtbResquestTest))//thêm list chi tiết phiếu xét nghiệm
                 {
                     MessageBox.Show("Thêm phiếu xét nghiệm thành công");
                     //lập phiếu xét nghiệm
