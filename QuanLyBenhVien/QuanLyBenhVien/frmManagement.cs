@@ -19,6 +19,7 @@ namespace QuanLyBenhVien
         BindingSource ServiceBinding = new BindingSource();
         BindingSource MedicineBinding = new BindingSource();
         BindingSource MedicineRecordBinding = new BindingSource();
+        BindingSource MedicineBillBinding = new BindingSource();
         string currentAcc;
         public frmManagement(string acc)
         {
@@ -41,6 +42,8 @@ namespace QuanLyBenhVien
             AddMedicineBinding();
             MedicalRecordBUS.Instance.LoadMedicineRecord(dtgvMedicalRecord, MedicineRecordBinding);
             AddMedicineRecordBinding();
+            MedicalBillBUS.Instance.LoadMedicineBill(dtgvMedicalBill,MedicineBillBinding);
+            AddMedicineBillBinding();
         }
         void authorization(string acc)// phần quyền người dùng trong form quản lý
         {
@@ -767,6 +770,102 @@ namespace QuanLyBenhVien
         {
             MedicalRecordBUS.Instance.LoadMedicineRecord(dtgvMedicalRecord, MedicineRecordBinding);
         }
+        private void btnSearchMedicalRecord_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            int.TryParse(txtSerachMedicalRecord.Text, out id);
+            MedicalRecordBUS.Instance.SearchMedicalRecordBillByID(id, MedicineRecordBinding);
+        }
+
+        private void txtSerachMedicalRecord_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+       (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+        #region MedicalBill
+        void AddMedicineBillBinding()
+        {
+            txtIDMedicalBill.DataBindings.Add(new Binding("text", dtgvMedicalBill.DataSource, "mapk", true, DataSourceUpdateMode.Never));
+            txtIDDoctorMedicalBill.DataBindings.Add(new Binding("text", dtgvMedicalBill.DataSource, "mabs", true, DataSourceUpdateMode.Never));
+            txtIDPatientMedicalBill.DataBindings.Add(new Binding("text", dtgvMedicalBill.DataSource, "mabn", true, DataSourceUpdateMode.Never));
+            dtpkMedicalBill.DataBindings.Add(new Binding("text", dtgvMedicalBill.DataSource, "ngaykham", true, DataSourceUpdateMode.Never));
+            rtbSymptonMedicalBill.DataBindings.Add(new Binding("text", dtgvMedicalBill.DataSource, "trieuchung", true, DataSourceUpdateMode.Never));
+            cbbInsuranceMedicalBill.DataBindings.Add(new Binding("text", dtgvMedicalBill.DataSource, "bhyt", true, DataSourceUpdateMode.Never));
+
+        }
+        private void btnLoadMedicalBill_Click(object sender, EventArgs e)
+        {
+            MedicalBillBUS.Instance.LoadMedicineBill(dtgvMedicalBill, MedicineBillBinding);
+        }
+
+        private void btnEditMedicalBill_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            int.TryParse(txtIDMedicalBill.Text, out id);
+            DateTime Dategenerate = dtpkMedicalBill.Value;
+            int insurance = 0;
+            int.TryParse(cbbInsuranceMedicalBill.Text, out insurance);
+            string symptom = rtbSymptonMedicalBill.Text;
+            if (string.IsNullOrWhiteSpace(symptom)) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(id.ToString())) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn bệnh án cần sửa", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(Dategenerate.ToString())) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn bệnh án cần sửa", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(insurance.ToString())) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn bệnh án cần sửa", "thông báo");
+                return;
+            }
+            if (MedicalBillBUS.Instance.UpdateMedicalRecord(id, Dategenerate, symptom, insurance))
+            {
+                MessageBox.Show("Sửa thành công", "Thông báo");
+                MedicalBillBUS.Instance.LoadMedicineBill(dtgvMedicalBill, MedicineBillBinding);
+            }
+            else
+                MessageBox.Show("Sửa thất bại", "Thông báo");
+        }
+
+        private void btnSearchMedicalBill_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            int.TryParse(txtSearchMedicalBill.Text, out id);
+            MedicalBillBUS.Instance.SearchListMedicineBillByID(id, MedicineBillBinding);
+        }
+        private void txtSearchMedicalBill_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+       (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         #endregion
 
 

@@ -48,21 +48,12 @@ namespace BUS
         //        return false;
         //    }
         //}
-        public void GetListPreInfoByPreID(int id, DataGridView dgtv)
+        public DataTable GetListPreInfoByPreID(int id)
         {
-            string query = string.Format("select bn.HoTenBN,dt.MaDT,dt.NgayTao,t.TenThuoc,ct.SoLuong,ct.HuongDan from DONTHUOC dt join CT_DONTHUOC ct on dt.MaDT=ct.MADT join KETQUA kq on dt.MAKQ=kq.MaKQ join XETNGHIEM xn on xn.MaXN=kq.MaKQ join BENHNHAN bn on bn.MaBN=xn.MaBN join THUOC t on t.MaThuoc=ct.MaThuoc where ct.mactdt={0}", id);
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            dgtv.DataSource = data;
-            dgtv.Columns[0].HeaderText = "Tên bệnh nhân";
-            dgtv.Columns[1].HeaderText = "Mã đơn thuốc";
-            dgtv.Columns[2].HeaderText = "Ngày tạo";
-            dgtv.Columns[3].HeaderText = "Tên thuốc";
-            dgtv.Columns[4].HeaderText = "Số lượng";
-            dgtv.Columns[5].HeaderText = "Hướng dẫn";
-            foreach (DataGridViewColumn col in dgtv.Columns)
-            {
-                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề
-            }
+            string query = string.Format("select bn.HoTenBN,dt.MaDT,dt.NgayTao,t.TenThuoc,ct.SoLuong,ct.HuongDan from DONTHUOC dt join CT_DONTHUOC ct on dt.MaDT=ct.MADT join KETQUA kq on dt.MAKQ=kq.MaKQ join XETNGHIEM xn on xn.MaXN=kq.MaKQ join BENHNHAN bn on bn.MaBN=xn.MaBN join THUOC t on t.MaThuoc=ct.MaThuoc where dt.madt={0}", id);
+             return DataProvider.Instance.ExecuteQuery(query);
         }
+
+
     }
 }

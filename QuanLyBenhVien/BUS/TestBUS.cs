@@ -40,7 +40,7 @@ namespace BUS
         public void GetTestByTestID(int id, DataGridView dgtv)
         {
 
-            DataTable data = DataProvider.Instance.ExecuteQuery("select xn.maxn,bn.HoTenBN from XETNGHIEM xn join BENHNHAN bn on xn.maxn=bn.mabn where MaXN=" + id);
+            DataTable data = DataProvider.Instance.ExecuteQuery("select xn.maxn,bn.HoTenBN from XETNGHIEM xn join BENHNHAN bn on xn.MaBN=bn.mabn where MaXN=" + id);
             dgtv.DataSource = data;
             dgtv.Columns[0].HeaderText = "Mã xét nghiệm";
             dgtv.Columns[1].HeaderText = "Tên bệnh nhân";

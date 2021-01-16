@@ -1,4 +1,5 @@
 ﻿using DAO;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,6 +30,34 @@ namespace BUS
             string query = string.Format("select * from HOADON where MaBN={0} and TINHTRANG=N'Chưa thanh toán'", id);
             return DataProvider.Instance.ExecuteQuery(query);
         }
+        public double CalSumMoney(int id)
+        {
+            double sum = 0;
+            List<BillDTO> list = new List<BillDTO>();
+            string query = string.Format("select * from HOADON where MaBN={0} and TINHTRANG=N'Chưa thanh toán'", id);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                BillDTO ITEM_DTO = new BillDTO(item);
+                list.Add(ITEM_DTO);
+            }
+            foreach (var item in list)
+            {
+                sum += item.TongTien;
+            }
+            return sum;
+        }
+        public int GetTypeInsuranceByIDMedicalBill(int id)
+        {
+            string query = string.Format("select BHYT from PHIEUKHAM where MaBN ={0}", id);
+
+            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            {
+                return (int)DataProvider.Instance.ExecuteScalar(query);
+            }
+            return 0;
+        }
+        
         public bool UpdateBillPaid(int id)
         {
             string query = string.Format("update hoadon set TINHTRANG = N'Đã thanh toán' where MABN =N'{0}'", id);

@@ -68,5 +68,17 @@ namespace BUS
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+        public void SearchMedicalRecordBillByID(int ID, BindingSource binding)
+        {
+            List<MedicalRecordDTO> list = new List<MedicalRecordDTO>();
+            string query = string.Format("select * from BENHAN where MABA={0}", ID);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                MedicalRecordDTO ITEM_DTO = new MedicalRecordDTO(item);
+                list.Add(ITEM_DTO);
+            }
+            binding.DataSource = list;
+        }
     }
 }

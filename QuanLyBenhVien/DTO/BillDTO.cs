@@ -28,7 +28,7 @@ namespace DTO
         {
             this.MaHD = (int)row["MaHD"];
             this.MaBN = (int)row["MaBN"];
-            this.NgayLap = (row["NgaySinhBS"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(row["NgayLap"]));
+            this.NgayLap = (row["NgayLap"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(row["NgayLap"]));
             this.TinhTrang = row["TinhTrang"].ToString();
             this.TongTien = double.Parse((row["TongTien"].ToString()));
         }

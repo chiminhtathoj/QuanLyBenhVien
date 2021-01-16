@@ -35,6 +35,8 @@ namespace QuanLyBenhVien
             this.txtSearchPay = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInsertTest = new System.Windows.Forms.Button();
+            this.txtSumMoney = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,11 +100,29 @@ namespace QuanLyBenhVien
             this.btnInsertTest.UseVisualStyleBackColor = true;
             this.btnInsertTest.Click += new System.EventHandler(this.btnInsertTest_Click);
             // 
+            // txtSumMoney
+            // 
+            this.txtSumMoney.Location = new System.Drawing.Point(363, 343);
+            this.txtSumMoney.Name = "txtSumMoney";
+            this.txtSumMoney.Size = new System.Drawing.Size(124, 20);
+            this.txtSumMoney.TabIndex = 20;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(302, 346);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Tổng tiền:";
+            // 
             // frmPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 383);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtSumMoney);
             this.Controls.Add(this.btnInsertTest);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSearchPay);
@@ -125,5 +145,7 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.TextBox txtSearchPay;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnInsertTest;
+        private System.Windows.Forms.TextBox txtSumMoney;
+        private System.Windows.Forms.Label label2;
     }
 }

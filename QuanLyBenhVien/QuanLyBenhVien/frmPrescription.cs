@@ -117,7 +117,18 @@ namespace QuanLyBenhVien
                     MessageBox.Show("Tạo đơn thuốc thành công!");
                     //In đơn thuốc
                     DGVPrinter printer = new DGVPrinter();
-                    PrescriptionInfoBUS.Instance.GetListPreInfoByPreID(PrescriptionBUS.Instance.GetMaxIDPrescription(), dtgvPrintMedicine);
+                    dtgvPrintMedicine.DataSource = PrescriptionInfoBUS.Instance.GetListPreInfoByPreID(PrescriptionBUS.Instance.GetMaxIDPrescription());
+                    dtgvPrintMedicine.Columns[0].HeaderText = "Tên bệnh nhân";
+                    dtgvPrintMedicine.Columns[1].HeaderText = "Mã đơn thuốc";
+                    dtgvPrintMedicine.Columns[2].HeaderText = "Ngày tạo";
+                    dtgvPrintMedicine.Columns[3].HeaderText = "Tên thuốc";
+                    dtgvPrintMedicine.Columns[4].HeaderText = "Số lượng";
+                    dtgvPrintMedicine.Columns[5].HeaderText = "Hướng dẫn";
+                    foreach (DataGridViewColumn col in dtgvPrintMedicine.Columns)
+                    {
+                        col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter; //căn lề giữ cho tiêu đề
+                    }
+                    
                     printer.Title = " \r\n\r\r Đơn thuốc\r\n\r\n  ";
                     //printer.SubTitle = "Tên bệnh nhân: " + PatientBUS.Instance.GetNamePatientByMedicalBillID(idResult) + "   Mã phiếu khám:  " + TestBUS.Instance.GetMaxIDTest();
                     printer.PageNumbers = true;
