@@ -51,15 +51,15 @@ namespace BUS
         }
         public bool isMedicalBillExist(int idMedicalBill)
         {
-            string query = string.Format("select * from XETNGHIEM where MAPK= N'{0}'", idMedicalBill);
-
-            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
-            {
-                return false;
-            }
-            else
+            string query = string.Format("select count(*) from XETNGHIEM where MAPK= N'{0}'", idMedicalBill);
+            int check = (int)DataProvider.Instance.ExecuteScalar(query);
+            if (check>0)
             {
                 return true;
+            }
+            else 
+            {
+                return false;
             }
         }
 

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DoctocDTO
+    public class DoctorDTO
     {
-        public DoctocDTO(int maBN, string cMND, string hoTenBS, DateTime ngaySinhBS, string gioiTinhBS, string dienThoaiBS, string diaChiBS, int maKhoa,string tenKhoa)
+        public DoctorDTO(int maBN, string cMND, string hoTenBS, DateTime ngaySinhBS, string gioiTinhBS, string dienThoaiBS, string diaChiBS, int maKhoa,string tenKhoa)
         {
             this.MaBS = maBN;
             this.CMND = cMND;
@@ -21,7 +21,7 @@ namespace DTO
             this.MaKhoa = maKhoa;
             this.TenKhoa = tenKhoa;
         }
-        public DoctocDTO(DataRow row)
+        public DoctorDTO(DataRow row)
         {
             this.MaBS = (int)row["MaBS"];
             this.CMND = row["CMND"].ToString();

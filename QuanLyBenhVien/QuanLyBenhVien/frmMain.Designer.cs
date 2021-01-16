@@ -36,6 +36,7 @@ namespace QuanLyBenhVien
             this.đăngXuâtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.khamBênhToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.kêtQuaChânĐoanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -80,7 +81,6 @@ namespace QuanLyBenhVien
             this.btnInsertMedicalBill = new System.Windows.Forms.Button();
             this.dtgvMedicalBill = new System.Windows.Forms.DataGridView();
             this.khamBênhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kêtQuaChânĐoanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPatient)).BeginInit();
@@ -139,6 +139,13 @@ namespace QuanLyBenhVien
             this.khamBênhToolStripMenuItem1.Size = new System.Drawing.Size(80, 20);
             this.khamBênhToolStripMenuItem1.Text = "Khám bệnh";
             this.khamBênhToolStripMenuItem1.Click += new System.EventHandler(this.khamBênhToolStripMenuItem1_Click);
+            // 
+            // kêtQuaChânĐoanToolStripMenuItem
+            // 
+            this.kêtQuaChânĐoanToolStripMenuItem.Name = "kêtQuaChânĐoanToolStripMenuItem";
+            this.kêtQuaChânĐoanToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+            this.kêtQuaChânĐoanToolStripMenuItem.Text = "Kết quả chẩn đoán";
+            this.kêtQuaChânĐoanToolStripMenuItem.Click += new System.EventHandler(this.kêtQuaChânĐoanToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -412,6 +419,7 @@ namespace QuanLyBenhVien
             this.cbbTypeInsurance.Name = "cbbTypeInsurance";
             this.cbbTypeInsurance.Size = new System.Drawing.Size(48, 21);
             this.cbbTypeInsurance.TabIndex = 11;
+            this.cbbTypeInsurance.Visible = false;
             // 
             // label8
             // 
@@ -421,6 +429,7 @@ namespace QuanLyBenhVien
             this.label8.Size = new System.Drawing.Size(96, 13);
             this.label8.TabIndex = 2;
             this.label8.Text = "Loại bảo hiểm y tế:";
+            this.label8.Visible = false;
             // 
             // label7
             // 
@@ -565,13 +574,6 @@ namespace QuanLyBenhVien
             this.khamBênhToolStripMenuItem.Name = "khamBênhToolStripMenuItem";
             this.khamBênhToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.khamBênhToolStripMenuItem.Text = "Khám bệnh";
-            // 
-            // kêtQuaChânĐoanToolStripMenuItem
-            // 
-            this.kêtQuaChânĐoanToolStripMenuItem.Name = "kêtQuaChânĐoanToolStripMenuItem";
-            this.kêtQuaChânĐoanToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
-            this.kêtQuaChânĐoanToolStripMenuItem.Text = "Kết quả chẩn đoán";
-            this.kêtQuaChânĐoanToolStripMenuItem.Click += new System.EventHandler(this.kêtQuaChânĐoanToolStripMenuItem_Click);
             // 
             // frmMain
             // 

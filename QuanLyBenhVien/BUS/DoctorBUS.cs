@@ -20,14 +20,14 @@ namespace BUS
             set => instance = value;
         }
         private DoctorBUS() { }
-        public List<DoctocDTO> GetListDoctor()
+        public List<DoctorDTO> GetListDoctor()
         {
-            List<DoctocDTO> listDoctor = new List<DoctocDTO>();
+            List<DoctorDTO> listDoctor = new List<DoctorDTO>();
 
             DataTable data = DataProvider.Instance.ExecuteQuery("select * from BACSI bs join KHOA k on bs.MaKhoa=k.MaKhoa");
             foreach (DataRow item in data.Rows)
             {
-                DoctocDTO patient = new DoctocDTO(item);
+                DoctorDTO patient = new DoctorDTO(item);
                 listDoctor.Add(patient);
             }
             return listDoctor;
@@ -80,24 +80,24 @@ namespace BUS
         }
         public void SearchListDoctorByName(string name,BindingSource DoctorBinding)
         {
-            List<DoctocDTO> listDoctor = new List<DoctocDTO>();
+            List<DoctorDTO> listDoctor = new List<DoctorDTO>();
             string query = string.Format("select * from BACSI bs join KHOA k on bs.MaKhoa=k.MaKhoa where dbo.GetUnsignString(HoTenBS) like '%' + dbo.GetUnsignString(N'{0}')+'%'", name);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                DoctocDTO patient = new DoctocDTO(item);
+                DoctorDTO patient = new DoctorDTO(item);
                 listDoctor.Add(patient);
             }
             DoctorBinding.DataSource= listDoctor;
         }
         public void SearchListDoctorByFaculty(string name, BindingSource DoctorBinding)
         {
-            List<DoctocDTO> listDoctor = new List<DoctocDTO>();
+            List<DoctorDTO> listDoctor = new List<DoctorDTO>();
             string query = string.Format("select * from BACSI bs join KHOA k on bs.MaKhoa=k.MaKhoa where dbo.GetUnsignString(k.TenKhoa) like '%' + dbo.GetUnsignString(N'{0}')+'%'", name);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                DoctocDTO patient = new DoctocDTO(item);
+                DoctorDTO patient = new DoctorDTO(item);
                 listDoctor.Add(patient);
             }
             DoctorBinding.DataSource = listDoctor;

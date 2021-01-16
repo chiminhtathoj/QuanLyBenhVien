@@ -150,6 +150,15 @@ namespace BUS
             return result > 0;
 
         }
+        public int GetMaxIDPatient()
+        {
+
+            if (DataProvider.Instance.ExecuteScalar("select max(MaBN) from Benhnhan") != DBNull.Value)
+            {
+                return (int)DataProvider.Instance.ExecuteScalar("select max(MaBN) from Benhnhan");
+            }
+            return 0;
+        }
 
     }
 }

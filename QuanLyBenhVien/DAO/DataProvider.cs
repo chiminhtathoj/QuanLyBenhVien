@@ -29,6 +29,7 @@ namespace DAO
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)//có thể null 
         {
+
             DataTable data = new DataTable();
 
             using (SqlConnection connection = new SqlConnection(connectionSTR))
@@ -55,6 +56,8 @@ namespace DAO
 
             }
             return data;
+
+
         }
         public int ExecuteNonQuery(string query, object[] parameter = null)// trả về kết quả là số dòng dữ liệu bị ảnh hưởng(số dòng xóa, số dòng update...)
         {

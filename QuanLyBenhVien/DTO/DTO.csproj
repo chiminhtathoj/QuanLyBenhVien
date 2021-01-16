@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountDTO.cs" />
-    <Compile Include="DoctocDTO.cs" />
+    <Compile Include="BillDTO.cs" />
+    <Compile Include="BillInfoDTO.cs" />
+    <Compile Include="DoctorDTO.cs" />
     <Compile Include="MedicalBillDTO.cs" />
     <Compile Include="MedicineDTO.cs" />
     <Compile Include="PatientDTO.cs" />

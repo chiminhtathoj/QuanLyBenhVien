@@ -143,11 +143,10 @@ namespace QuanLyBenhVien
             CheckBox cb = sender as CheckBox;
             if (cb.Checked)
             {
-                cbbTypeInsurance.Enabled = true;
+                cbbTypeInsurance.Text = "1";
             }
             else
             {
-                cbbTypeInsurance.Enabled = false;
                 cbbTypeInsurance.Text = "0";
             }
         }

@@ -54,14 +54,15 @@ namespace BUS
         }
         public bool isResultExist(int id)
         {
-            string query = string.Format("select * from DONTHUOC where MaKQ= N'{0}'", id);
-            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            string query = string.Format("select count(*) from DONTHUOC where MaKQ= N'{0}'", id);
+            int check = (int)DataProvider.Instance.ExecuteScalar(query);
+            if (check > 0)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
     }

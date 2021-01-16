@@ -39,6 +39,11 @@ namespace QuanLyBenhVien
             {
                 MessageBox.Show("Vui lòng nhập lý do chuyển viện!");
             }
+            if (int.Parse(txtIDPatient.Text) > PatientBUS.Instance.GetMaxIDPatient() || int.Parse(txtIDPatient.Text) < 1)
+            {
+                MessageBox.Show("Mã bệnh nhân nhập không đúng!");
+                return;
+            }
 
             int id = 0;
             int.TryParse(txtIDPatient.Text, out id);

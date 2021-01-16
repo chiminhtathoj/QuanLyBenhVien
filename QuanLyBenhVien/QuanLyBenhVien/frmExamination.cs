@@ -54,16 +54,17 @@ namespace QuanLyBenhVien
             }
             if (TestBUS.Instance.isMedicalBillExist(int.Parse(txtIDMedicalBill.Text)))
             {
-                MessageBox.Show("bệnh này đả được khám rồi");
+                MessageBox.Show("bệnh nhân trong phiếu khám này đả được khám rồi");
                 return;
             }
             
             int idMedicalBill = 0;
             int.TryParse(txtIDMedicalBill.Text, out idMedicalBill);
-            int id =PatientBUS.Instance.GetIDPatientByMedicalBillID(idMedicalBill);
-            if (TestBUS.Instance.InsertTest(id,DoctorBUS.Instance.GetIDDoctorByMedicalBillID(idMedicalBill))) // thêm phiếu xét nghiệm
+            int idPatient =PatientBUS.Instance.GetIDPatientByMedicalBillID(idMedicalBill);
+            if (TestBUS.Instance.InsertTest(idPatient, DoctorBUS.Instance.GetIDDoctorByMedicalBillID(idMedicalBill))) // thêm phiếu xét nghiệm
             {
-               if(TestInfoBUS.Instance.InsertListTestInfofromLV(lvService, dtpkDateMedicalExamination.Value, rtbResquestTest))//thêm list chi tiết phiếu xét nghiệm
+                  BillBUS.Instance.InsertBill(idPatient, dtpkDateMedicalExamination.Value,"Chưa thanh toán", TestInfoBUS.Instance.CalSumMoney()); // lập hóa đơn
+               if(TestInfoBUS.Instance.InsertListTestInfofromLV(lvService, dtpkDateMedicalExamination.Value, rtbResquestTest))//thêm list chi tiết phiếu xét nghiệm và thêm chi tiết hóa đơn
                 {
                     MessageBox.Show("Thêm phiếu xét nghiệm thành công");
                     //lập phiếu xét nghiệm

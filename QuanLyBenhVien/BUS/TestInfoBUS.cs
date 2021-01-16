@@ -47,7 +47,7 @@ namespace BUS
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
-        public bool InsertListTestInfofromLV(System.Windows.Forms.ListView lv,DateTime datetest,RichTextBox txt)
+        public bool InsertListTestInfofromLV(System.Windows.Forms.ListView lv,DateTime datetest,RichTextBox txt) // thêm chi tiết xét nghiệm và chi tiết hóa đơn
         {
             int idTest = TestBUS.Instance.GetMaxIDTest();
             if (lv.Items.Count != 0)
@@ -55,6 +55,7 @@ namespace BUS
                 foreach (var item in ServiceBUS.Instance.listServiceGB)
                 {
                     InsertTestInfo(idTest, item.MaDV, datetest, txt.Text);
+                    BillInfoBUS.Instance.InsertBillInfoWithoutPrescription(BillBUS.Instance.GetMaxIDBill(), idTest);
                 }
                 return true;
             }
@@ -63,6 +64,19 @@ namespace BUS
                 InsertTestInfo(idTest, datetest, txt.Text);
                 return true;
             }
+        }
+        public double CalSumMoney()
+        {
+            double sum = 0;
+            foreach (var item in ServiceBUS.Instance.listServiceGB)
+            {
+                sum += item.DonGia;
+            }
+            if (sum == 0)
+            {
+                sum = 100000;
+            }
+            return sum;
         }
     }
 }

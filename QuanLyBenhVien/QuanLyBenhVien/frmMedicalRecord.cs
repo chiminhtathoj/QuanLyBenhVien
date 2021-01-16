@@ -31,10 +31,17 @@ namespace QuanLyBenhVien
             if (string.IsNullOrEmpty(txtIDPatient.Text))
             {
                 MessageBox.Show("Vui lòng nhập mã bệnh nhân!");
+                return;
             }
             if (string.IsNullOrEmpty(rtbStatusPre.Text))
             {
                 MessageBox.Show("Vui lòng nhập tình trạng của bệnh nhân!");
+                return;
+            }
+            if (int.Parse(txtIDPatient.Text) > PatientBUS.Instance.GetMaxIDPatient() || int.Parse(txtIDPatient.Text)<1)
+            {
+                MessageBox.Show("Mã bệnh nhân nhập không đúng!");
+                return;
             }
 
             int id = 0;

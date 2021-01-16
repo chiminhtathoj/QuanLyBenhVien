@@ -100,7 +100,6 @@ namespace QuanLyBenhVien
             // 
             this.txtIDResult.Location = new System.Drawing.Point(108, 19);
             this.txtIDResult.Name = "txtIDResult";
-            this.txtIDResult.ReadOnly = true;
             this.txtIDResult.Size = new System.Drawing.Size(48, 20);
             this.txtIDResult.TabIndex = 15;
             // 

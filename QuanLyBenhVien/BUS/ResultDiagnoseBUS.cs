@@ -39,14 +39,15 @@ namespace BUS
         }
         public bool isTestExist(int idTest)
         {
-            string query = string.Format("select * from KETQUA where MAXN= N'{0}'", idTest);
-            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            string query = string.Format("select count(*) from KETQUA where MaXN= N'{0}'", idTest);
+            int check = (int)DataProvider.Instance.ExecuteScalar(query);
+            if (check > 0)
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
         

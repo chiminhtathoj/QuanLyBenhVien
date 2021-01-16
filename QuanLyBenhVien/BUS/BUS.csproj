@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountBUS.cs" />
+    <Compile Include="BillBUS.cs" />
+    <Compile Include="BillInfoBUS.cs" />
     <Compile Include="DGVPrinter.cs" />
     <Compile Include="DoctorBUS.cs" />
     <Compile Include="MedicalBillBUS.cs" />

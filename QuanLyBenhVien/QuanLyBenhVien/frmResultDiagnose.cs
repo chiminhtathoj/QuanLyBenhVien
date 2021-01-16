@@ -28,6 +28,8 @@ namespace QuanLyBenhVien
 
         private void btnInsertTest_Click(object sender, EventArgs e)
         {
+            int idTest = 0;
+            int.TryParse(txtIDTest.Text, out idTest);
             if (string.IsNullOrEmpty(txtIDTest.Text))
             {
                 MessageBox.Show("Vui lòng chọn phiếu xét nghiệm!");
@@ -53,13 +55,13 @@ namespace QuanLyBenhVien
                 MessageBox.Show("Vui lòng chọn ngày!");
                 return;
             }
-            if (ResultDiagnoseBUS.Instance.isTestExist(int.Parse(txtIDTest.Text)))
+          
+            if (ResultDiagnoseBUS.Instance.isTestExist(idTest))
             {
                 MessageBox.Show("Bệnh nhân trong mã phiếu này đả có kết quả rồi!");
                 return;
             }
-            int idTest = 0;
-            int.TryParse(txtIDTest.Text, out idTest);
+          
             ResultDiagnoseBUS.Instance.InsertResultDiagnose(idTest, dtpkDateResult.Value, rtbResultDiagnose.Text, cbbDOT.Text);
             MessageBox.Show("Thêm phiếu kết quả thành công!");
             if (string.Equals(cbbDOT.Text,"Ngoại trú"))
@@ -97,7 +99,7 @@ namespace QuanLyBenhVien
                     btnInsertTest.Text = "Lập đơn thuốc";
                     break;
                 case "Nhập viện":
-                    btnInsertTest.Text = "Lập giấy nhập viện";
+                    btnInsertTest.Text = "Lập hồ sơ bệnh án";
                     break;
                 case "Chuyển viện":
                     btnInsertTest.Text = "Lập giấy chuyển viện";
