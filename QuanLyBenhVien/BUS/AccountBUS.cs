@@ -98,7 +98,7 @@ namespace BUS
         }
         public bool ResetAcc(string username)
         {
-            string query = string.Format("update NGUOIDUNG set MatKhau=N'2251022057731868917119086224872421513662' where TenDangNhap=N'{0}'", username);
+            string query = string.Format("update NGUOIDUNG set MatKhau=N'123456' where TenDangNhap=N'{0}'", username);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

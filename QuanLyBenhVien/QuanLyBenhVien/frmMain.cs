@@ -69,7 +69,21 @@ namespace QuanLyBenhVien
         }
         void ChangeAccount(string type)
         {
-
+            if(type=="Bác sĩ")
+            {
+                thanhToanToolStripMenuItem.Visible = false;
+            }
+            else if(type=="Kế toán")
+            {
+                thanhToanToolStripMenuItem.Enabled = true;
+                adminToolStripMenuItem.Enabled = false;
+                khamBênhToolStripMenuItem1.Enabled = false;
+                kêtQuaChânĐoanToolStripMenuItem.Enabled = false;
+                groupBox1.Enabled = false;
+                groupBox2.Enabled = false;
+                groupBox3.Enabled = false;
+                btnInsertMedicalBill.Enabled = false;
+            }
         }
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -163,6 +177,12 @@ namespace QuanLyBenhVien
         private void kêtQuaChânĐoanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmResultDiagnose f = new frmResultDiagnose();
+            f.ShowDialog();
+        }
+
+        private void thanhToanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPay f = new frmPay();
             f.ShowDialog();
         }
     }

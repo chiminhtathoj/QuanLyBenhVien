@@ -29,6 +29,12 @@ namespace BUS
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+        public bool InsertBillInfoWithoutTest(int idBill, int idPrescrip)
+        {
+            string query = string.Format("insert into CT_HOADON (MAHD,MaDT)VALUES ( N'{0}', N'{1}')", idBill, idPrescrip);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
         public int GetMaxIDBillInfo()
         {
 

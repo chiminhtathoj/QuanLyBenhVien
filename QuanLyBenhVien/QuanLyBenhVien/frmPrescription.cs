@@ -95,15 +95,24 @@ namespace QuanLyBenhVien
                 int Among = 0;
                 int.TryParse(txtAmount.Text, out Among);
                 int idMedicine = 0;
+                double sum = 0;
+                double price = 0;
 
                 if (PrescriptionBUS.Instance.InsertPrescription(idResult, Dategenerate))// thêm đơn thuốc
                 {
                     for (int i = 0; i < lvMedicinePicked.Items.Count; i++) //duyệt vào từng phần tử trong lv rồi thêm chi tiết hóa đơn cho mỗi phần tử
                     {
+                        sum += double.Parse(lvMedicinePicked.Items[i].SubItems[3].Text) * int.Parse(lvMedicinePicked.Items[i].SubItems[4].Text);
+                    }
+
+                    BillBUS.Instance.InsertBill(ResultDiagnoseBUS.Instance.GetIDPatientByResultID(idResult), Dategenerate, "Chưa thanh toán", sum);
+                    for (int i = 0; i < lvMedicinePicked.Items.Count; i++) //duyệt vào từng phần tử trong lv rồi thêm chi tiết đơn thuốc cho mỗi phần tử
+                    {
                         int.TryParse(lvMedicinePicked.Items[i].SubItems[0].Text, out idMedicine);
                         int.TryParse(lvMedicinePicked.Items[i].SubItems[4].Text, out Among);
                         rtbGuide.Text = lvMedicinePicked.Items[i].SubItems[5].Text;
                         PrescriptionInfoBUS.Instance.InsertPrescriptionInfo(idMedicine, PrescriptionBUS.Instance.GetMaxIDPrescription(), Among, rtbGuide.Text);
+                        BillInfoBUS.Instance.InsertBillInfoWithoutTest(BillBUS.Instance.GetMaxIDBill(), PrescriptionBUS.Instance.GetMaxIDPrescription());
                     }
                     MessageBox.Show("Tạo đơn thuốc thành công!");
                     //In đơn thuốc

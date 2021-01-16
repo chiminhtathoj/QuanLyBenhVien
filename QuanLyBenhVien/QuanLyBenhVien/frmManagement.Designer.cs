@@ -69,7 +69,7 @@ namespace QuanLyBenhVien
             this.btnSearchPatient = new System.Windows.Forms.Button();
             this.txtSearchPatient = new System.Windows.Forms.TextBox();
             this.dtgvPatient = new System.Windows.Forms.DataGridView();
-            this.tbDoctor = new System.Windows.Forms.TabPage();
+            this.tpDoctor = new System.Windows.Forms.TabPage();
             this.btnLoadDoctor = new System.Windows.Forms.Button();
             this.btnEditDoctor = new System.Windows.Forms.Button();
             this.btnAddDoctor = new System.Windows.Forms.Button();
@@ -128,6 +128,24 @@ namespace QuanLyBenhVien
             this.btnSearchMedicineByName = new System.Windows.Forms.Button();
             this.txtSearchMedicine = new System.Windows.Forms.TextBox();
             this.dtgvMedicine = new System.Windows.Forms.DataGridView();
+            this.tpMecicalRecord = new System.Windows.Forms.TabPage();
+            this.btnLoadMedicalRecord = new System.Windows.Forms.Button();
+            this.EditMedicalRecord = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.rtbStatusAfter = new System.Windows.Forms.RichTextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtIDMedicalRecord = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtIdPatientRecord = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.btnSearchMedicalRecord = new System.Windows.Forms.Button();
+            this.txtSerachMedicalRecord = new System.Windows.Forms.TextBox();
+            this.dtgvMedicalRecord = new System.Windows.Forms.DataGridView();
+            this.rtbStatusPre = new System.Windows.Forms.RichTextBox();
             this.patientBUSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tcManagement.SuspendLayout();
             this.tpAccount.SuspendLayout();
@@ -136,7 +154,7 @@ namespace QuanLyBenhVien
             this.tpPatient.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPatient)).BeginInit();
-            this.tbDoctor.SuspendLayout();
+            this.tpDoctor.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDoctor)).BeginInit();
             this.tpService.SuspendLayout();
@@ -145,6 +163,9 @@ namespace QuanLyBenhVien
             this.tpMedicine.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMedicine)).BeginInit();
+            this.tpMecicalRecord.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMedicalRecord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBUSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,9 +173,10 @@ namespace QuanLyBenhVien
             // 
             this.tcManagement.Controls.Add(this.tpAccount);
             this.tcManagement.Controls.Add(this.tpPatient);
-            this.tcManagement.Controls.Add(this.tbDoctor);
+            this.tcManagement.Controls.Add(this.tpDoctor);
             this.tcManagement.Controls.Add(this.tpService);
             this.tcManagement.Controls.Add(this.tpMedicine);
+            this.tcManagement.Controls.Add(this.tpMecicalRecord);
             this.tcManagement.Location = new System.Drawing.Point(2, 1);
             this.tcManagement.Name = "tcManagement";
             this.tcManagement.SelectedIndex = 0;
@@ -250,8 +272,7 @@ namespace QuanLyBenhVien
             this.cbbUserType.Items.AddRange(new object[] {
             "Admin",
             "Bác sĩ",
-            "Nhân viên",
-            "Nghỉ việc"});
+            "Kế toán"});
             this.cbbUserType.Location = new System.Drawing.Point(191, 100);
             this.cbbUserType.Name = "cbbUserType";
             this.cbbUserType.Size = new System.Drawing.Size(174, 21);
@@ -566,20 +587,20 @@ namespace QuanLyBenhVien
             this.dtgvPatient.TabIndex = 1;
             this.dtgvPatient.TabStop = false;
             // 
-            // tbDoctor
+            // tpDoctor
             // 
-            this.tbDoctor.Controls.Add(this.btnLoadDoctor);
-            this.tbDoctor.Controls.Add(this.btnEditDoctor);
-            this.tbDoctor.Controls.Add(this.btnAddDoctor);
-            this.tbDoctor.Controls.Add(this.panel3);
-            this.tbDoctor.Controls.Add(this.dtgvDoctor);
-            this.tbDoctor.Location = new System.Drawing.Point(4, 22);
-            this.tbDoctor.Name = "tbDoctor";
-            this.tbDoctor.Padding = new System.Windows.Forms.Padding(3);
-            this.tbDoctor.Size = new System.Drawing.Size(1402, 630);
-            this.tbDoctor.TabIndex = 2;
-            this.tbDoctor.Text = "Bác sĩ";
-            this.tbDoctor.UseVisualStyleBackColor = true;
+            this.tpDoctor.Controls.Add(this.btnLoadDoctor);
+            this.tpDoctor.Controls.Add(this.btnEditDoctor);
+            this.tpDoctor.Controls.Add(this.btnAddDoctor);
+            this.tpDoctor.Controls.Add(this.panel3);
+            this.tpDoctor.Controls.Add(this.dtgvDoctor);
+            this.tpDoctor.Location = new System.Drawing.Point(4, 22);
+            this.tpDoctor.Name = "tpDoctor";
+            this.tpDoctor.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDoctor.Size = new System.Drawing.Size(1402, 630);
+            this.tpDoctor.TabIndex = 2;
+            this.tpDoctor.Text = "Bác sĩ";
+            this.tpDoctor.UseVisualStyleBackColor = true;
             // 
             // btnLoadDoctor
             // 
@@ -1193,6 +1214,192 @@ namespace QuanLyBenhVien
             this.dtgvMedicine.TabIndex = 4;
             this.dtgvMedicine.TabStop = false;
             // 
+            // tpMecicalRecord
+            // 
+            this.tpMecicalRecord.Controls.Add(this.btnLoadMedicalRecord);
+            this.tpMecicalRecord.Controls.Add(this.EditMedicalRecord);
+            this.tpMecicalRecord.Controls.Add(this.panel6);
+            this.tpMecicalRecord.Controls.Add(this.dtgvMedicalRecord);
+            this.tpMecicalRecord.Location = new System.Drawing.Point(4, 22);
+            this.tpMecicalRecord.Name = "tpMecicalRecord";
+            this.tpMecicalRecord.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMecicalRecord.Size = new System.Drawing.Size(1402, 630);
+            this.tpMecicalRecord.TabIndex = 5;
+            this.tpMecicalRecord.Text = "Bệnh án";
+            this.tpMecicalRecord.UseVisualStyleBackColor = true;
+            // 
+            // btnLoadMedicalRecord
+            // 
+            this.btnLoadMedicalRecord.Location = new System.Drawing.Point(1094, 501);
+            this.btnLoadMedicalRecord.Name = "btnLoadMedicalRecord";
+            this.btnLoadMedicalRecord.Size = new System.Drawing.Size(85, 40);
+            this.btnLoadMedicalRecord.TabIndex = 16;
+            this.btnLoadMedicalRecord.Text = "Xem";
+            this.btnLoadMedicalRecord.UseVisualStyleBackColor = true;
+            this.btnLoadMedicalRecord.Click += new System.EventHandler(this.btnLoadMedicalRecord_Click);
+            // 
+            // EditMedicalRecord
+            // 
+            this.EditMedicalRecord.Location = new System.Drawing.Point(1268, 501);
+            this.EditMedicalRecord.Name = "EditMedicalRecord";
+            this.EditMedicalRecord.Size = new System.Drawing.Size(85, 40);
+            this.EditMedicalRecord.TabIndex = 15;
+            this.EditMedicalRecord.Text = "Sửa";
+            this.EditMedicalRecord.UseVisualStyleBackColor = true;
+            this.EditMedicalRecord.Click += new System.EventHandler(this.EditMedicalRecord_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.rtbStatusAfter);
+            this.panel6.Controls.Add(this.label35);
+            this.panel6.Controls.Add(this.label36);
+            this.panel6.Controls.Add(this.rtbStatusPre);
+            this.panel6.Controls.Add(this.label34);
+            this.panel6.Controls.Add(this.txtIDMedicalRecord);
+            this.panel6.Controls.Add(this.label30);
+            this.panel6.Controls.Add(this.txtIdPatientRecord);
+            this.panel6.Controls.Add(this.label31);
+            this.panel6.Controls.Add(this.label32);
+            this.panel6.Controls.Add(this.label33);
+            this.panel6.Controls.Add(this.btnSearchMedicalRecord);
+            this.panel6.Controls.Add(this.txtSerachMedicalRecord);
+            this.panel6.Location = new System.Drawing.Point(1030, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(372, 480);
+            this.panel6.TabIndex = 9;
+            // 
+            // rtbStatusAfter
+            // 
+            this.rtbStatusAfter.Location = new System.Drawing.Point(147, 166);
+            this.rtbStatusAfter.Name = "rtbStatusAfter";
+            this.rtbStatusAfter.Size = new System.Drawing.Size(216, 37);
+            this.rtbStatusAfter.TabIndex = 21;
+            this.rtbStatusAfter.Text = "";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(27, 184);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(120, 19);
+            this.label35.TabIndex = 20;
+            this.label35.Text = "Khi nhập viện:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(22, 165);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(119, 19);
+            this.label36.TabIndex = 19;
+            this.label36.Text = "Tình trạng sau";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(29, 141);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(120, 19);
+            this.label34.TabIndex = 17;
+            this.label34.Text = "Khi nhập viện:";
+            // 
+            // txtIDMedicalRecord
+            // 
+            this.txtIDMedicalRecord.Location = new System.Drawing.Point(149, 55);
+            this.txtIDMedicalRecord.Name = "txtIDMedicalRecord";
+            this.txtIDMedicalRecord.ReadOnly = true;
+            this.txtIDMedicalRecord.Size = new System.Drawing.Size(216, 20);
+            this.txtIDMedicalRecord.TabIndex = 16;
+            this.txtIDMedicalRecord.TabStop = false;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(40, 55);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(103, 19);
+            this.label30.TabIndex = 15;
+            this.label30.Text = "Mã bệnh án:";
+            // 
+            // txtIdPatientRecord
+            // 
+            this.txtIdPatientRecord.Location = new System.Drawing.Point(149, 90);
+            this.txtIdPatientRecord.Name = "txtIdPatientRecord";
+            this.txtIdPatientRecord.ReadOnly = true;
+            this.txtIdPatientRecord.Size = new System.Drawing.Size(216, 20);
+            this.txtIdPatientRecord.TabIndex = 2;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(5, 122);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(138, 19);
+            this.label31.TabIndex = 9;
+            this.label31.Text = "Tình trạng Trước";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(20, 89);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(123, 19);
+            this.label32.TabIndex = 8;
+            this.label32.Text = "Mã bệnh nhân:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(80, 28);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(194, 24);
+            this.label33.TabIndex = 7;
+            this.label33.Text = "Thông tin bệnh án";
+            // 
+            // btnSearchMedicalRecord
+            // 
+            this.btnSearchMedicalRecord.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchMedicalRecord.Location = new System.Drawing.Point(276, 2);
+            this.btnSearchMedicalRecord.Name = "btnSearchMedicalRecord";
+            this.btnSearchMedicalRecord.Size = new System.Drawing.Size(89, 23);
+            this.btnSearchMedicalRecord.TabIndex = 1;
+            this.btnSearchMedicalRecord.Text = "Tìm kiếm";
+            this.btnSearchMedicalRecord.UseVisualStyleBackColor = true;
+            // 
+            // txtSerachMedicalRecord
+            // 
+            this.txtSerachMedicalRecord.Location = new System.Drawing.Point(3, 3);
+            this.txtSerachMedicalRecord.Name = "txtSerachMedicalRecord";
+            this.txtSerachMedicalRecord.Size = new System.Drawing.Size(267, 20);
+            this.txtSerachMedicalRecord.TabIndex = 0;
+            // 
+            // dtgvMedicalRecord
+            // 
+            this.dtgvMedicalRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvMedicalRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvMedicalRecord.Location = new System.Drawing.Point(6, 3);
+            this.dtgvMedicalRecord.Name = "dtgvMedicalRecord";
+            this.dtgvMedicalRecord.ReadOnly = true;
+            this.dtgvMedicalRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvMedicalRecord.Size = new System.Drawing.Size(1021, 624);
+            this.dtgvMedicalRecord.TabIndex = 4;
+            this.dtgvMedicalRecord.TabStop = false;
+            // 
+            // rtbStatusPre
+            // 
+            this.rtbStatusPre.Location = new System.Drawing.Point(149, 123);
+            this.rtbStatusPre.Name = "rtbStatusPre";
+            this.rtbStatusPre.Size = new System.Drawing.Size(216, 37);
+            this.rtbStatusPre.TabIndex = 18;
+            this.rtbStatusPre.Text = "";
+            // 
             // patientBUSBindingSource
             // 
             this.patientBUSBindingSource.DataSource = typeof(BUS.PatientBUS);
@@ -1216,7 +1423,7 @@ namespace QuanLyBenhVien
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPatient)).EndInit();
-            this.tbDoctor.ResumeLayout(false);
+            this.tpDoctor.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDoctor)).EndInit();
@@ -1228,6 +1435,10 @@ namespace QuanLyBenhVien
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMedicine)).EndInit();
+            this.tpMecicalRecord.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMedicalRecord)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBUSBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1274,7 +1485,7 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.DataGridView dtgvPatient;
         private System.Windows.Forms.TextBox txtNamePatient;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TabPage tbDoctor;
+        private System.Windows.Forms.TabPage tpDoctor;
         private System.Windows.Forms.Button btnLoadDoctor;
         private System.Windows.Forms.Button btnEditDoctor;
         private System.Windows.Forms.Button btnAddDoctor;
@@ -1334,5 +1545,23 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.Button btnSearchMedicineByName;
         private System.Windows.Forms.TextBox txtSearchMedicine;
         private System.Windows.Forms.DataGridView dtgvMedicine;
+        private System.Windows.Forms.TabPage tpMecicalRecord;
+        private System.Windows.Forms.Button btnLoadMedicalRecord;
+        private System.Windows.Forms.Button EditMedicalRecord;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.RichTextBox rtbStatusAfter;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox txtIDMedicalRecord;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txtIdPatientRecord;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Button btnSearchMedicalRecord;
+        private System.Windows.Forms.TextBox txtSerachMedicalRecord;
+        private System.Windows.Forms.DataGridView dtgvMedicalRecord;
+        private System.Windows.Forms.RichTextBox rtbStatusPre;
     }
 }

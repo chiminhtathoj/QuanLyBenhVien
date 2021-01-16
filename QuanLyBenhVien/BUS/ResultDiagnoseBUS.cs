@@ -37,6 +37,16 @@ namespace BUS
             }
             return 0;
         }
+        public int GetIDPatientByResultID(int id)
+        {
+            string query = string.Format("select xn.MaBN from KETQUA kq join XETNGHIEM xn on kq.MaXN= xn.MaXN where makq={0}", id);
+
+            if (DataProvider.Instance.ExecuteScalar(query) != DBNull.Value)
+            {
+                return (int)DataProvider.Instance.ExecuteScalar(query);
+            }
+            return -1;
+        }
         public bool isTestExist(int idTest)
         {
             string query = string.Format("select count(*) from KETQUA where MaXN= N'{0}'", idTest);

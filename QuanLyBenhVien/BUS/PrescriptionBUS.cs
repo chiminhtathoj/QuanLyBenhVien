@@ -52,6 +52,8 @@ namespace BUS
             }
             return 0;
         }
+        
+        
         public bool isResultExist(int id)
         {
             string query = string.Format("select count(*) from DONTHUOC where MaKQ= N'{0}'", id);

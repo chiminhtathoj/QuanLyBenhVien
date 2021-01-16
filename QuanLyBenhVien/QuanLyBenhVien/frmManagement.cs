@@ -18,6 +18,7 @@ namespace QuanLyBenhVien
         BindingSource DoctorBinding = new BindingSource();
         BindingSource ServiceBinding = new BindingSource();
         BindingSource MedicineBinding = new BindingSource();
+        BindingSource MedicineRecordBinding = new BindingSource();
         string currentAcc;
         public frmManagement(string acc)
         {
@@ -38,14 +39,21 @@ namespace QuanLyBenhVien
             AddServiceBinding();
             MedicineBUS.Instance.LoadMedicine(dtgvMedicine, MedicineBinding);
             AddMedicineBinding();
+            MedicalRecordBUS.Instance.LoadMedicineRecord(dtgvMedicalRecord, MedicineRecordBinding);
+            AddMedicineRecordBinding();
         }
         void authorization(string acc)// phần quyền người dùng trong form quản lý
         {
-            string type = AccountBUS.Instance.GetTypeAccByUserName(acc);
+            string type = AccountBUS.Instance.GetTypeAccByUserName(acc); 
             switch (type)
             {
                 case "Bác sĩ":
-                    tcManagement.TabPages.Remove(tpAccount);
+                    btnAddDoctor.Enabled = false;
+                    btnEditDoctor.Enabled = false;
+                    btnAddUser.Enabled = false;
+                    btnEditUser.Enabled = false;
+                    btnResetAccPW.Enabled = false;
+                    btnDeleteUser.Enabled = false;
                     break;
                 default:
                     break;
@@ -620,6 +628,11 @@ namespace QuanLyBenhVien
         }
         #endregion
         #region Medicine
+        private void btnSearchMedicineByName_Click(object sender, EventArgs e)
+        {
+            MedicineBUS.Instance.SearchListMedicineByName(txtSearchMedicine.Text, MedicineBinding);
+        }
+
         void AddMedicineBinding()
         {
             txtIDMedicine.DataBindings.Add(new Binding("text", dtgvMedicine.DataSource, "MATHUOC", true, DataSourceUpdateMode.Never));
@@ -712,12 +725,50 @@ namespace QuanLyBenhVien
             MedicineBUS.Instance.LoadMedicine(dtgvMedicine, MedicineBinding);
         }
         #endregion
-
-        private void btnSearchMedicineByName_Click(object sender, EventArgs e)
+        #region MedicalRecord
+        void AddMedicineRecordBinding()
         {
-            MedicineBUS.Instance.SearchListMedicineByName(txtSearchMedicine.Text, MedicineBinding);
+            txtIDMedicalRecord.DataBindings.Add(new Binding("text", dtgvMedicalRecord.DataSource, "maba", true, DataSourceUpdateMode.Never));
+            txtIdPatientRecord.DataBindings.Add(new Binding("text", dtgvMedicalRecord.DataSource, "mabn", true, DataSourceUpdateMode.Never));
+            rtbStatusPre.DataBindings.Add(new Binding("text", dtgvMedicalRecord.DataSource, "tinhtrangtruocnhapvien", true, DataSourceUpdateMode.Never));
+            rtbStatusAfter.DataBindings.Add(new Binding("text", dtgvMedicalRecord.DataSource, "tinhtrangsaunhapvien", true, DataSourceUpdateMode.Never));
+        }
+        private void EditMedicalRecord_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            int.TryParse(txtIDMedicalRecord.Text, out id);
+            string pre = rtbStatusPre.Text;
+            string after = rtbStatusAfter.Text;
+            if (string.IsNullOrWhiteSpace(pre)) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(after)) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần sửa", "thông báo");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(id.ToString())) // check các textbox phải điền đầy đủ mới cho thêm 
+            {
+                MessageBox.Show("Vui lòng chọn bệnh án cần sửa", "thông báo");
+                return;
+            }
+            if (MedicalRecordBUS.Instance.UpdateMedicalRecord(id, pre,after))
+            {
+                MessageBox.Show("Sửa thành công", "Thông báo");
+                MedicalRecordBUS.Instance.LoadMedicineRecord(dtgvMedicalRecord, MedicineRecordBinding);
+            }
+            else
+                MessageBox.Show("Sửa thất bại", "Thông báo");
         }
 
-        
+        private void btnLoadMedicalRecord_Click(object sender, EventArgs e)
+        {
+            MedicalRecordBUS.Instance.LoadMedicineRecord(dtgvMedicalRecord, MedicineRecordBinding);
+        }
+        #endregion
+
+
     }
 }

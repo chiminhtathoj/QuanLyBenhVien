@@ -1,6 +1,7 @@
 ﻿using DAO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,18 @@ namespace BUS
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+        public DataTable SearchBillNotPayByIDPatient(int id)
+        {
+            string query = string.Format("select * from HOADON where MaBN={0} and TINHTRANG=N'Chưa thanh toán'", id);
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+        public bool UpdateBillPaid(int id)
+        {
+            string query = string.Format("update hoadon set TINHTRANG = N'Đã thanh toán' where MABN =N'{0}'", id);
+            int result =DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+       
         public int GetMaxIDBill()
         {
 

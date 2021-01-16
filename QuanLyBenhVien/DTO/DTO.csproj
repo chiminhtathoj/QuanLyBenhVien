@@ -54,6 +54,7 @@
     <Compile Include="BillInfoDTO.cs" />
     <Compile Include="DoctorDTO.cs" />
     <Compile Include="MedicalBillDTO.cs" />
+    <Compile Include="MedicalRecordDTO.cs" />
     <Compile Include="MedicineDTO.cs" />
     <Compile Include="PatientDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

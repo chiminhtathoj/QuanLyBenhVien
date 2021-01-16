@@ -61,7 +61,7 @@ namespace QuanLyBenhVien
             int idMedicalBill = 0;
             int.TryParse(txtIDMedicalBill.Text, out idMedicalBill);
             int idPatient =PatientBUS.Instance.GetIDPatientByMedicalBillID(idMedicalBill);
-            if (TestBUS.Instance.InsertTest(idPatient, DoctorBUS.Instance.GetIDDoctorByMedicalBillID(idMedicalBill))) // thêm phiếu xét nghiệm
+            if (TestBUS.Instance.InsertTest(idPatient,idMedicalBill /*DoctorBUS.Instance.GetIDDoctorByMedicalBillID(idMedicalBill)*/)) // thêm phiếu xét nghiệm
             {
                   BillBUS.Instance.InsertBill(idPatient, dtpkDateMedicalExamination.Value,"Chưa thanh toán", TestInfoBUS.Instance.CalSumMoney()); // lập hóa đơn
                if(TestInfoBUS.Instance.InsertListTestInfofromLV(lvService, dtpkDateMedicalExamination.Value, rtbResquestTest))//thêm list chi tiết phiếu xét nghiệm và thêm chi tiết hóa đơn

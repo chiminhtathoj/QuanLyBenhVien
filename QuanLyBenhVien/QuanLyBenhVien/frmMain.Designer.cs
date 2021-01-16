@@ -81,6 +81,7 @@ namespace QuanLyBenhVien
             this.btnInsertMedicalBill = new System.Windows.Forms.Button();
             this.dtgvMedicalBill = new System.Windows.Forms.DataGridView();
             this.khamBênhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thanhToanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPatient)).BeginInit();
@@ -96,7 +97,8 @@ namespace QuanLyBenhVien
             this.taiKhoanToolStripMenuItem,
             this.adminToolStripMenuItem,
             this.khamBênhToolStripMenuItem1,
-            this.kêtQuaChânĐoanToolStripMenuItem});
+            this.kêtQuaChânĐoanToolStripMenuItem,
+            this.thanhToanToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(876, 24);
@@ -575,6 +577,13 @@ namespace QuanLyBenhVien
             this.khamBênhToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.khamBênhToolStripMenuItem.Text = "Khám bệnh";
             // 
+            // thanhToanToolStripMenuItem
+            // 
+            this.thanhToanToolStripMenuItem.Name = "thanhToanToolStripMenuItem";
+            this.thanhToanToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.thanhToanToolStripMenuItem.Text = "Thanh toán";
+            this.thanhToanToolStripMenuItem.Click += new System.EventHandler(this.thanhToanToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,5 +668,6 @@ namespace QuanLyBenhVien
         private System.Windows.Forms.ToolStripMenuItem khamBênhToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem khamBênhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kêtQuaChânĐoanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thanhToanToolStripMenuItem;
     }
 }
